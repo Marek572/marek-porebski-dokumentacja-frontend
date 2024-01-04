@@ -1,0 +1,1504 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">front-end documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  EditSchoolFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/common/forms/edit-school-form/edit-school-form.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: { displayDefaultIndicatorType: false },
+}</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-school-form</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./edit-school-form.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./edit-school-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#currentTabIndex" >currentTabIndex</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog" >dialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
+                                <a href="#editSchoolData" >editSchoolData</a>
+                            </li>
+                            <li>
+                                <a href="#errorAPI" >errorAPI</a>
+                            </li>
+                            <li>
+                                <a href="#maxTabIndex" >maxTabIndex</a>
+                            </li>
+                            <li>
+                                <a href="#provinceList" >provinceList</a>
+                            </li>
+                            <li>
+                                <a href="#schoolAdressForm" >schoolAdressForm</a>
+                            </li>
+                            <li>
+                                <a href="#schoolContactForm" >schoolContactForm</a>
+                            </li>
+                            <li>
+                                <a href="#schoolDetailsForm" >schoolDetailsForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#schoolService" >schoolService</a>
+                            </li>
+                            <li>
+                                <a href="#statusList" >statusList</a>
+                            </li>
+                            <li>
+                                <a href="#typeList" >typeList</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#checkValidators" >checkValidators</a>
+                            </li>
+                            <li>
+                                <a href="#getDirtyData" >getDirtyData</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFormCancel" >onFormCancel</a>
+                            </li>
+                            <li>
+                                <a href="#onFormSubmit" >onFormSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(formBuilder: FormBuilder, dialog: MatDialog, schoolService: <a href="../injectables/SchoolsService.html" target="_self">SchoolsService</a>, snackBar: MatSnackBar, editSchoolData: <a href="../interfaces/IUpdateSchoolModel.html" target="_self">IUpdateSchoolModel</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>schoolService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolsService.html" target="_self" >SchoolsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>editSchoolData</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IUpdateSchoolModel.html" target="_self" >IUpdateSchoolModel</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkValidators"></a>
+                    <span class="name">
+                        <span ><b>checkValidators</b></span>
+                        <a href="#checkValidators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkValidators()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDirtyData"></a>
+                    <span class="name">
+                        <span ><b>getDirtyData</b></span>
+                        <a href="#getDirtyData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDirtyData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFormCancel"></a>
+                    <span class="name">
+                        <span ><b>onFormCancel</b></span>
+                        <a href="#onFormCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFormCancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFormSubmit"></a>
+                    <span class="name">
+                        <span ><b>onFormSubmit</b></span>
+                        <a href="#onFormSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFormSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentTabIndex"></a>
+                    <span class="name">
+                        <span ><b>currentTabIndex</b></span>
+                        <a href="#currentTabIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialog"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dialog</b></span>
+                        <a href="#dialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatDialog</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editSchoolData"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
+                        <span ><b>editSchoolData</b></span>
+                        <a href="#editSchoolData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IUpdateSchoolModel.html" target="_self" >IUpdateSchoolModel</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Inject(MAT_DIALOG_DATA)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorAPI"></a>
+                    <span class="name">
+                        <span ><b>errorAPI</b></span>
+                        <a href="#errorAPI"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IErrorAPIModel.html" target="_self" >IErrorAPIModel</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ type: &#x27;&#x27; }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxTabIndex"></a>
+                    <span class="name">
+                        <span ><b>maxTabIndex</b></span>
+                        <a href="#maxTabIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>2</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="provinceList"></a>
+                    <span class="name">
+                        <span ><b>provinceList</b></span>
+                        <a href="#provinceList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Province</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolAdressForm"></a>
+                    <span class="name">
+                        <span ><b>schoolAdressForm</b></span>
+                        <a href="#schoolAdressForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolContactForm"></a>
+                    <span class="name">
+                        <span ><b>schoolContactForm</b></span>
+                        <a href="#schoolContactForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolDetailsForm"></a>
+                    <span class="name">
+                        <span ><b>schoolDetailsForm</b></span>
+                        <a href="#schoolDetailsForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>schoolService</b></span>
+                        <a href="#schoolService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/SchoolsService.html" target="_self" >SchoolsService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="statusList"></a>
+                    <span class="name">
+                        <span ><b>statusList</b></span>
+                        <a href="#statusList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Status</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typeList"></a>
+                    <span class="name">
+                        <span ><b>typeList</b></span>
+                        <a href="#typeList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Type</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/common/forms/edit-school-form/edit-school-form.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, OnInit } from &#x27;@angular/core&#x27;;
+import { MAT_DIALOG_DATA, MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { IErrorAPIModel } from &#x27;src/app/models/errorAPI.model&#x27;;
+import { SchoolsService } from &#x27;src/app/services/schools/schools.service&#x27;;
+import { IUpdateSchoolModel } from &#x27;src/app/models/school/update-school.model&#x27;;
+import { STEPPER_GLOBAL_OPTIONS } from &#x27;@angular/cdk/stepper&#x27;;
+import { MatchData, handleError } from &#x27;src/app/utils/common-functions&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { Province, Status, Type } from &#x27;src/app/models/school/enum.model&#x27;;
+import { DataLossDialogComponent } from &#x27;../../dialog/dataLoss-dialog/dataLoss-dialog/dataLoss-dialog.component&#x27;;
+
+@Component({
+  selector: &#x27;app-school-form&#x27;,
+  templateUrl: &#x27;./edit-school-form.component.html&#x27;,
+  styleUrls: [&#x27;./edit-school-form.component.scss&#x27;],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false },
+    },
+  ],
+})
+
+export class EditSchoolFormComponent implements OnInit {
+
+  constructor(
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog,
+    public schoolService: SchoolsService,
+    private snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public editSchoolData: IUpdateSchoolModel
+  ) { }
+
+
+  currentTabIndex: number &#x3D; 0;
+  maxTabIndex: number &#x3D; 2;
+  statusList &#x3D; Status;
+  typeList &#x3D; Type;
+  provinceList &#x3D; Province;
+  schoolDetailsForm!: FormGroup;
+  schoolAdressForm!: FormGroup;
+  schoolContactForm!: FormGroup;
+  errorAPI: IErrorAPIModel &#x3D; { type: &#x27;&#x27; };
+
+  ngOnInit() {
+
+    const { name, status, type, cooperation, street, suiteNumber, postCode, city, province, phone, email } &#x3D; this.editSchoolData
+
+    this.schoolDetailsForm &#x3D; this.formBuilder.group({
+      name: [name, Validators.required],
+      status: [Object.keys(this.statusList).find(e &#x3D;&gt; e &#x3D;&#x3D;&#x3D; status), Validators.required],
+      type: [Object.keys(this.typeList).find(e &#x3D;&gt; e &#x3D;&#x3D;&#x3D; type), Validators.required],
+      cooperation: [cooperation],
+    }, { updateOn: &#x27;blur&#x27; })
+
+    this.schoolAdressForm &#x3D; this.formBuilder.group({
+      street: [street, Validators.required],
+      suiteNumber: [suiteNumber, Validators.required],
+      postCode: [postCode, Validators.compose([
+        Validators.required,
+        Validators.pattern(new RegExp(&#x27;^\\d{2}-\\d{3}$&#x27;))
+      ])],
+      city: [city, Validators.required],
+      province: [Object.keys(this.provinceList).find(e &#x3D;&gt; e &#x3D;&#x3D;&#x3D; province), Validators.required],
+    }, { updateOn: &#x27;blur&#x27; })
+
+    this.schoolContactForm &#x3D; this.formBuilder.group({
+      phone: [phone, Validators.compose([
+        Validators.required,
+        Validators.pattern(new RegExp(&#x27;^(?&#x3D;.*[0-9]).{9,9}$&#x27;))
+      ])],
+      email: [email, Validators.compose([
+        Validators.email
+      ])],
+    }, { updateOn: &#x27;blur&#x27; })
+
+  }
+
+  checkValidators(): boolean {
+    const schoolDetailsFormValid &#x3D; this.schoolDetailsForm.valid;
+    const schoolAdressValid &#x3D; this.schoolAdressForm.valid;
+    const schoolContactValid &#x3D; this.schoolContactForm.valid;
+
+    if (schoolDetailsFormValid &amp;&amp; schoolAdressValid &amp;&amp; schoolContactValid)
+      return true
+    else
+      return false;
+  }
+
+  getDirtyData() {
+    let combinedDirtyValues: any &#x3D; {};
+
+    const formGroups &#x3D; [
+      this.schoolDetailsForm,
+      this.schoolAdressForm,
+      this.schoolContactForm
+    ];
+
+    formGroups.forEach(formGroup &#x3D;&gt; {
+      Object.keys(formGroup.controls).forEach(key &#x3D;&gt; {
+        const currentControl &#x3D; formGroup.controls[key];
+        if (currentControl.dirty) {
+          combinedDirtyValues[key] &#x3D; currentControl.value;
+        }
+      });
+    });
+
+    return combinedDirtyValues;
+  }
+
+  onFormSubmit() {
+
+    if (!this.checkValidators())
+      return;
+
+    if (this.schoolDetailsForm.dirty || this.schoolAdressForm.dirty || this.schoolContactForm.dirty) {
+      console.log(&#x27;addSchool&#x27;);
+      this.schoolService.updateSchool(this.getDirtyData(), this.editSchoolData.id)
+        .subscribe({
+          next: () &#x3D;&gt; { },
+          error: (err: IErrorAPIModel) &#x3D;&gt; {
+            handleError(this.schoolContactForm, err);
+          },
+          complete: () &#x3D;&gt; {
+            this.dialog.closeAll();
+            this.snackBar.open(&#x27;Szkoła zmieniona pomyślnie&#x27;, &#x27;&#x27;, {
+              duration: 4000,
+              panelClass: [&#x27;custom-snackbar&#x27;]
+            });
+          }
+        })
+    }
+  }
+
+  onFormCancel() {
+    const merged &#x3D; Object.assign(this.schoolDetailsForm.value, this.schoolAdressForm.value, this.schoolContactForm.value);
+    const matcher &#x3D; [&quot;name&quot;, &quot;status&quot;, &quot;type&quot;, &quot;cooperation&quot;, &quot;street&quot;, &quot;suiteNumber&quot;, &quot;city&quot;, &quot;province&quot;, &quot;phone&quot;, &quot;email&quot;]
+    if (MatchData(merged, this.editSchoolData, matcher)) {
+      this.dialog.closeAll();
+    } else {
+      let dialogRef &#x3D; this.dialog.open(DataLossDialogComponent, {});
+    }
+  }
+
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-stepper #stepper class&#x3D;&quot;formContainer&quot; matDialogContent&gt;
+
+  &lt;mat-step [stepControl]&#x3D;&quot;schoolDetailsForm&quot; label&#x3D;&quot;Dane podstawowe&quot; state&#x3D;&quot;edit&quot;&gt;
+    &lt;form [formGroup]&#x3D;&quot;schoolDetailsForm&quot; class&#x3D;&quot;formStyle&quot;&gt;
+      &lt;div class&#x3D;&quot;formContent&quot;&gt;
+
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;div class&#x3D;&quot;inputStyle&quot;&gt;
+            &lt;input
+              matInput
+              formControlName&#x3D;&quot;name&quot;
+              placeholder&#x3D;&quot;Nazwa placówki&quot;
+            /&gt;
+          &lt;/div&gt;
+          &lt;mat-error&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolDetailsForm.get(&#x27;name&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Nazwa placówki jest wymagana.
+            &lt;/div&gt;
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;mat-select formControlName&#x3D;&quot;status&quot; placeholder&#x3D;&quot;Status&quot;&gt;
+            &lt;mat-option
+              *ngFor&#x3D;&quot;let status of statusList  | keyvalue&quot;
+              [value]&#x3D;&quot;status.value&quot;
+            &gt;
+              {{ status.value | translateValues }}
+            &lt;/mat-option&gt;
+          &lt;/mat-select&gt;
+          &lt;mat-error&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolDetailsForm.get(&#x27;status&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Status jest wymagany.
+            &lt;/div&gt;
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;mat-select formControlName&#x3D;&quot;type&quot; placeholder&#x3D;&quot;Typ&quot;&gt;
+            &lt;mat-option *ngFor&#x3D;&quot;let type of typeList | keyvalue&quot; [value]&#x3D;&quot;type.value&quot;&gt;
+              {{ type.value | translateValues }}
+            &lt;/mat-option&gt;
+          &lt;/mat-select&gt;
+          &lt;mat-error&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolDetailsForm.get(&#x27;type&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Typ jest wymagany.
+            &lt;/div&gt;
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;mat-form-field&gt;
+          &lt;mat-select  formControlName&#x3D;&quot;cooperation&quot;&gt;
+              &lt;mat-option [value]&#x3D;&quot;true&quot;&gt;Kooperacja&lt;/mat-option&gt;
+              &lt;mat-option [value]&#x3D;&quot;false&quot;&gt;Brak kooperacji&lt;/mat-option&gt;
+          &lt;/mat-select&gt;
+        &lt;/mat-form-field&gt;
+
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;actionButtonsContainer&quot; matDialogActions&gt;
+        &lt;button mat-button&gt;
+          &lt;div class&#x3D;&quot;btn cancelBtn&quot; (click)&#x3D;&quot;onFormCancel()&quot;&gt;Zamknij&lt;/div&gt;
+        &lt;/button&gt;
+        &lt;button mat-button matStepperNext class&#x3D;&quot;btn submitBtn&quot;&gt;Dalej&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/mat-step&gt;
+
+  &lt;mat-step [stepControl]&#x3D;&quot;schoolAdressForm&quot;  label&#x3D;&quot;Adres&quot; state&#x3D;&quot;edit&quot;&gt;
+    &lt;form [formGroup]&#x3D;&quot;schoolAdressForm&quot;  class&#x3D;&quot;formStyle&quot;&gt;
+      &lt;div class&#x3D;&quot;formContent&quot;&gt;
+
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;div class&#x3D;&quot;inputStyle&quot;&gt;
+            &lt;input matInput formControlName&#x3D;&quot;street&quot; placeholder&#x3D;&quot;Ulica&quot; /&gt;
+          &lt;/div&gt;
+          &lt;mat-error&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolAdressForm.get(&#x27;street&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Ulica jest wymagana.
+            &lt;/div&gt;
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;div class&#x3D;&quot;inputStyle&quot;&gt;
+            &lt;input
+              matInput
+              formControlName&#x3D;&quot;suiteNumber&quot;
+              placeholder&#x3D;&quot;Numer lokalu&quot;
+            /&gt;
+          &lt;/div&gt;
+          &lt;mat-error&gt;
+            &lt;div
+              *ngIf&#x3D;&quot;schoolAdressForm.get(&#x27;suiteNumber&#x27;)?.errors?.[&#x27;required&#x27;]&quot;
+            &gt;
+              Numer lokalu jest wymagany.
+            &lt;/div&gt;
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot; &gt;
+          &lt;div class&#x3D;&quot;inputStyle&quot; &gt;
+            &lt;input
+              matInput
+              formControlName&#x3D;&quot;postCode&quot;
+              placeholder&#x3D;&quot;Kod pocztowy&quot;
+              mask&#x3D;&quot;00-000&quot;
+            /&gt;
+          &lt;/div&gt;
+          &lt;mat-error&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolAdressForm.get(&#x27;postCode&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Kod pocztowy jest wymagany.
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolAdressForm.get(&#x27;postCode&#x27;)?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+              Wprowadź kod pocztowy w formacie XX-XXX, gdzie X to cyfry od 0 do 9.
+            &lt;/div&gt;
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;div class&#x3D;&quot;inputStyle&quot;&gt;
+            &lt;input matInput formControlName&#x3D;&quot;city&quot; placeholder&#x3D;&quot;Miasto&quot; /&gt;
+          &lt;/div&gt;
+          &lt;mat-error&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolAdressForm.get(&#x27;city&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Miasto jest wymagane.
+            &lt;/div&gt;
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;mat-select formControlName&#x3D;&quot;province&quot; placeholder&#x3D;&quot;Województwo&quot;&gt;
+            &lt;mat-option *ngFor&#x3D;&quot;let province of provinceList | keyvalue&quot; [value]&#x3D;&quot;province.value&quot;&gt;
+              {{ province.value | translateValues }}
+            &lt;/mat-option&gt;
+          &lt;/mat-select&gt;
+          &lt;mat-error&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolAdressForm.get(&#x27;province&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Województwo jest wymagane.
+            &lt;/div&gt;
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;actionButtonsContainer&quot;&gt;
+        &lt;button mat-button matStepperPrevious class&#x3D;&quot;btn cancelBtn&quot;&gt;
+          Cofnij
+        &lt;/button&gt;
+        &lt;button mat-button matStepperNext class&#x3D;&quot;btn submitBtn&quot;&gt;Dalej&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/mat-step&gt;
+
+  &lt;mat-step
+    [stepControl]&#x3D;&quot;schoolContactForm&quot;
+    label&#x3D;&quot;Dane kontaktowe&quot;
+    state&#x3D;&quot;edit&quot;
+  &gt;
+    &lt;form [formGroup]&#x3D;&quot;schoolContactForm&quot; class&#x3D;&quot;formStyle&quot;&gt;
+      &lt;div class&#x3D;&quot;formContent&quot;&gt;
+
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;div class&#x3D;&quot;inputStyle&quot;&gt;
+            &lt;input
+              matInput
+              type&#x3D;&quot;tel&quot;
+              formControlName&#x3D;&quot;phone&quot;
+              placeholder&#x3D;&quot;Telefon&quot;
+            /&gt;
+          &lt;/div&gt;
+          &lt;mat-error&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolContactForm.get(&#x27;phone&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;
+              Numer kontaktowy jest wymagany.
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolContactForm.get(&#x27;phone&#x27;)?.errors?.[&#x27;pattern&#x27;]&quot;&gt;
+              Numer telefonu powinien składać się z 9 cyfr.
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolContactForm.get(&#x27;phone&#x27;)?.hasError(&#x27;serverError&#x27;)&quot;&gt;
+              {{ this.schoolContactForm.get(&quot;phone&quot;)?.getError(&quot;serverError&quot;) }}
+            &lt;/div&gt;
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;div class&#x3D;&quot;inputStyle&quot;&gt;
+            &lt;input matInput formControlName&#x3D;&quot;email&quot; placeholder&#x3D;&quot;Email&quot; /&gt;
+          &lt;/div&gt;
+          &lt;mat-error&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolContactForm.get(&#x27;email&#x27;)?.errors?.[&#x27;email&#x27;]&quot;&gt;
+              Wprowadź prawidłowy adres email, np.jan.kowalski&amp;#64;email.pl.
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;schoolContactForm.get(&#x27;email&#x27;)?.hasError(&#x27;serverError&#x27;)&quot;&gt;
+              {{ this.schoolContactForm.get(&quot;email&quot;)?.getError(&quot;serverError&quot;) }}
+            &lt;/div&gt;
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;actionButtonsContainer&quot;&gt;
+        &lt;button mat-button matStepperPrevious class&#x3D;&quot;btn cancelBtn&quot;&gt;
+          Cofnij
+        &lt;/button&gt;
+        &lt;button mat-button&gt;
+          &lt;div class&#x3D;&quot;btn submitBtn&quot; (click)&#x3D;&quot;onFormSubmit()&quot;&gt;Zapisz&lt;/div&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/mat-step&gt;
+&lt;/mat-stepper&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./edit-school-form.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;../../../../colors.scss&quot;;
+
+.formContainer {
+  padding: 0;
+  background: map-get($black, default);
+  color: map-get($white, default);
+}
+
+.formStyle {
+  display: flex;
+  flex-direction: column;
+}
+
+.formTabs {
+  width: 100%;
+}
+
+.formContent {
+  margin: 50px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+mat-form-field, mat-slide-toggle {
+  width: 15vw;
+  margin-bottom: 20px;
+}
+
+mat-slide-toggle {
+  display: flex;
+  justify-content: center;
+}
+
+.inputStyle,
+mat-select {
+  height: 30px;
+  padding: 0;
+}
+
+input,
+mat-option {
+  color: map-get($white, default);
+}
+
+mat-option {
+  background: map-get($gray, default);
+}
+
+.actionButtonsContainer {
+  margin-bottom: 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.btn {
+  border-radius: 8px;
+  width: 120px;
+  height: 35px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancelBtn {
+  background-color: map-get($red, dark);
+  font-size: 1rem ;
+}
+
+.submitBtn {
+  background: map-get($green, default);
+  color: map-get($white, default);
+  font-size: 1rem ;
+}
+
+.btnDisabled {
+  background: map-get($gray, light);
+  color: map-get($white, default);
+}
+
+mat-error {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: flex-start;
+  color: map-get($red, default);
+  line-height: 20px;
+  width: 15rem;
+}
+
+.formCheckbox {
+  margin: 0 0 20px 0;
+}
+
+.commentField {
+  color: map-get($white, default);
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: transparent !important;
+  color: map-get($green, default);
+  + .mat-step-label {
+    color: map-get($green, default) !important;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-stepper #stepper class="formContainer" matDialogContent>  <mat-step [stepControl]="schoolDetailsForm" label="Dane podstawowe" state="edit">    <form [formGroup]="schoolDetailsForm" class="formStyle">      <div class="formContent">        <mat-form-field appearance="fill">          <div class="inputStyle">            <input              matInput              formControlName="name"              placeholder="Nazwa placówki"            />          </div>          <mat-error>            <div *ngIf="schoolDetailsForm.get(\'name\')?.errors?.[\'required\']">              Nazwa placówki jest wymagana.            </div>          </mat-error>        </mat-form-field>        <mat-form-field appearance="fill">          <mat-select formControlName="status" placeholder="Status">            <mat-option              *ngFor="let status of statusList  | keyvalue"              [value]="status.value"            >              {{ status.value | translateValues }}            </mat-option>          </mat-select>          <mat-error>            <div *ngIf="schoolDetailsForm.get(\'status\')?.errors?.[\'required\']">              Status jest wymagany.            </div>          </mat-error>        </mat-form-field>        <mat-form-field appearance="fill">          <mat-select formControlName="type" placeholder="Typ">            <mat-option *ngFor="let type of typeList | keyvalue" [value]="type.value">              {{ type.value | translateValues }}            </mat-option>          </mat-select>          <mat-error>            <div *ngIf="schoolDetailsForm.get(\'type\')?.errors?.[\'required\']">              Typ jest wymagany.            </div>          </mat-error>        </mat-form-field>        <mat-form-field>          <mat-select  formControlName="cooperation">              <mat-option [value]="true">Kooperacja</mat-option>              <mat-option [value]="false">Brak kooperacji</mat-option>          </mat-select>        </mat-form-field>      </div>      <div class="actionButtonsContainer" matDialogActions>        <button mat-button>          <div class="btn cancelBtn" (click)="onFormCancel()">Zamknij</div>        </button>        <button mat-button matStepperNext class="btn submitBtn">Dalej</button>      </div>    </form>  </mat-step>  <mat-step [stepControl]="schoolAdressForm"  label="Adres" state="edit">    <form [formGroup]="schoolAdressForm"  class="formStyle">      <div class="formContent">        <mat-form-field appearance="fill">          <div class="inputStyle">            <input matInput formControlName="street" placeholder="Ulica" />          </div>          <mat-error>            <div *ngIf="schoolAdressForm.get(\'street\')?.errors?.[\'required\']">              Ulica jest wymagana.            </div>          </mat-error>        </mat-form-field>        <mat-form-field appearance="fill">          <div class="inputStyle">            <input              matInput              formControlName="suiteNumber"              placeholder="Numer lokalu"            />          </div>          <mat-error>            <div              *ngIf="schoolAdressForm.get(\'suiteNumber\')?.errors?.[\'required\']"            >              Numer lokalu jest wymagany.            </div>          </mat-error>        </mat-form-field>        <mat-form-field appearance="fill" >          <div class="inputStyle" >            <input              matInput              formControlName="postCode"              placeholder="Kod pocztowy"              mask="00-000"            />          </div>          <mat-error>            <div *ngIf="schoolAdressForm.get(\'postCode\')?.errors?.[\'required\']">              Kod pocztowy jest wymagany.            </div>            <div *ngIf="schoolAdressForm.get(\'postCode\')?.errors?.[\'pattern\']">              Wprowadź kod pocztowy w formacie XX-XXX, gdzie X to cyfry od 0 do 9.            </div>          </mat-error>        </mat-form-field>        <mat-form-field appearance="fill">          <div class="inputStyle">            <input matInput formControlName="city" placeholder="Miasto" />          </div>          <mat-error>            <div *ngIf="schoolAdressForm.get(\'city\')?.errors?.[\'required\']">              Miasto jest wymagane.            </div>          </mat-error>        </mat-form-field>        <mat-form-field appearance="fill">          <mat-select formControlName="province" placeholder="Województwo">            <mat-option *ngFor="let province of provinceList | keyvalue" [value]="province.value">              {{ province.value | translateValues }}            </mat-option>          </mat-select>          <mat-error>            <div *ngIf="schoolAdressForm.get(\'province\')?.errors?.[\'required\']">              Województwo jest wymagane.            </div>          </mat-error>        </mat-form-field>      </div>      <div class="actionButtonsContainer">        <button mat-button matStepperPrevious class="btn cancelBtn">          Cofnij        </button>        <button mat-button matStepperNext class="btn submitBtn">Dalej</button>      </div>    </form>  </mat-step>  <mat-step    [stepControl]="schoolContactForm"    label="Dane kontaktowe"    state="edit"  >    <form [formGroup]="schoolContactForm" class="formStyle">      <div class="formContent">        <mat-form-field appearance="fill">          <div class="inputStyle">            <input              matInput              type="tel"              formControlName="phone"              placeholder="Telefon"            />          </div>          <mat-error>            <div *ngIf="schoolContactForm.get(\'phone\')?.errors?.[\'required\']">              Numer kontaktowy jest wymagany.            </div>            <div *ngIf="schoolContactForm.get(\'phone\')?.errors?.[\'pattern\']">              Numer telefonu powinien składać się z 9 cyfr.            </div>            <div *ngIf="schoolContactForm.get(\'phone\')?.hasError(\'serverError\')">              {{ this.schoolContactForm.get("phone")?.getError("serverError") }}            </div>          </mat-error>        </mat-form-field>        <mat-form-field appearance="fill">          <div class="inputStyle">            <input matInput formControlName="email" placeholder="Email" />          </div>          <mat-error>            <div *ngIf="schoolContactForm.get(\'email\')?.errors?.[\'email\']">              Wprowadź prawidłowy adres email, np.jan.kowalski&#64;email.pl.            </div>            <div *ngIf="schoolContactForm.get(\'email\')?.hasError(\'serverError\')">              {{ this.schoolContactForm.get("email")?.getError("serverError") }}            </div>          </mat-error>        </mat-form-field>      </div>      <div class="actionButtonsContainer">        <button mat-button matStepperPrevious class="btn cancelBtn">          Cofnij        </button>        <button mat-button>          <div class="btn submitBtn" (click)="onFormSubmit()">Zapisz</div>        </button>      </div>    </form>  </mat-step></mat-stepper></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CancelBtnComponent', 'selector': 'app-cancel-btn'},{'name': 'ChangePassComponent', 'selector': 'app-ChangePass'},{'name': 'ClosePopupComponent', 'selector': 'app-close-popup'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactPersonFormComponent', 'selector': 'app-contact-person-form'},{'name': 'DataLossDialogComponent', 'selector': 'app-dataLoss-dialog'},{'name': 'EditFiszkaFormComponent', 'selector': 'app-edit-fiszka-form'},{'name': 'EditGroupFormComponent', 'selector': 'app-edit-group-form'},{'name': 'EditInterviewFormComponent', 'selector': 'app-edit-interview-form'},{'name': 'EditSchoolFormComponent', 'selector': 'app-school-form'},{'name': 'EditUserFormComponent', 'selector': 'app-edit-user-form'},{'name': 'ErrorPageComponent', 'selector': 'app-error-page'},{'name': 'FiszkaDetailsComponent', 'selector': 'app-fiszka-details'},{'name': 'FiszkaFormComponent', 'selector': 'app-fiszka-form'},{'name': 'FiszkiComponent', 'selector': 'app-fiszki'},{'name': 'GroupFiszkaFormComponent', 'selector': 'app-group-fiszka-form'},{'name': 'GroupFiszkiComponent', 'selector': 'app-group-fiszki'},{'name': 'GroupFormComponent', 'selector': 'app-group-form-component'},{'name': 'GroupsComponent', 'selector': 'app-groups'},{'name': 'InterviewFiszkiComponent', 'selector': 'app-interview-fiszki'},{'name': 'InterviewFormComponent', 'selector': 'app-interview-form'},{'name': 'InterviewsComponent', 'selector': 'app-interviews'},{'name': 'InterviewUserFormComponent', 'selector': 'app-interview-user-form'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavbarItemComponent', 'selector': 'app-navbar-item'},{'name': 'NavigatorCardComponent', 'selector': 'app-navigator-card'},{'name': 'PasswordStrengthComponent', 'selector': 'app-password-strength'},{'name': 'PhoneCallFormComponent', 'selector': 'app-phone-call-form'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SchoolDetailsComponent', 'selector': 'app-school-details'},{'name': 'SchoolFormComponent', 'selector': 'app-school-form'},{'name': 'SchoolsComponent', 'selector': 'app-schools'},{'name': 'SearchbarComponent', 'selector': 'app-searchbar'},{'name': 'StatsComponent', 'selector': 'app-stats'},{'name': 'SubmitBtnComponent', 'selector': 'app-submit-btn'},{'name': 'UserDetailsComponent', 'selector': 'app-details'},{'name': 'UserFormComponent', 'selector': 'app-form'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EditSchoolFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EditSchoolFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

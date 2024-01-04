@@ -1,0 +1,1391 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">front-end documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  InterviewsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/views/interviews/interviews.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-interviews</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./interviews.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./interviews.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeTab" >activeTab</a>
+                            </li>
+                            <li>
+                                <a href="#dataSource" >dataSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog" >dialog</a>
+                            </li>
+                            <li>
+                                <a href="#displayedColumns" >displayedColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#empTbSort" >empTbSort</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#injector" >injector</a>
+                            </li>
+                            <li>
+                                <a href="#interviewFiszki" >interviewFiszki</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#paginator" >paginator</a>
+                            </li>
+                            <li>
+                                <a href="#tabsLabels" >tabsLabels</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addBtnClick" >addBtnClick</a>
+                            </li>
+                            <li>
+                                <a href="#editBtnClick" >editBtnClick</a>
+                            </li>
+                            <li>
+                                <a href="#filterInterviewsByTab" >filterInterviewsByTab</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onTabChange" >onTabChange</a>
+                            </li>
+                            <li>
+                                <a href="#searchbarFilter" >searchbarFilter</a>
+                            </li>
+                            <li>
+                                <a href="#showDetails" >showDetails</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(interviewsService: <a href="../injectables/InterviewsService.html" target="_self">InterviewsService</a>, dialog: MatDialog, injector: Injector)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/views/interviews/interviews.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>interviewsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/InterviewsService.html" target="_self" >InterviewsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addBtnClick"></a>
+                    <span class="name">
+                        <span ><b>addBtnClick</b></span>
+                        <a href="#addBtnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addBtnClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/views/interviews/interviews.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editBtnClick"></a>
+                    <span class="name">
+                        <span ><b>editBtnClick</b></span>
+                        <a href="#editBtnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editBtnClick(event: Event, formData: <a href="../interfaces/IUpdateInterviewsModel.html" target="_self">IUpdateInterviewsModel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/app/views/interviews/interviews.component.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>formData</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IUpdateInterviewsModel.html" target="_self" >IUpdateInterviewsModel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterInterviewsByTab"></a>
+                    <span class="name">
+                        <span ><b>filterInterviewsByTab</b></span>
+                        <a href="#filterInterviewsByTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filterInterviewsByTab(interviews: <a href="../interfaces/IInterviewsModel.html" target="_self">IInterviewsModel[]</a>, tab: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">src/app/views/interviews/interviews.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>interviews</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IInterviewsModel.html" target="_self" >IInterviewsModel[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>tab</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IInterviewsModel.html" target="_self" >IInterviewsModel[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/views/interviews/interviews.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/views/interviews/interviews.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTabChange"></a>
+                    <span class="name">
+                        <span ><b>onTabChange</b></span>
+                        <a href="#onTabChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTabChange(tabLabel: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/views/interviews/interviews.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tabLabel</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchbarFilter"></a>
+                    <span class="name">
+                        <span ><b>searchbarFilter</b></span>
+                        <a href="#searchbarFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchbarFilter(inputValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/views/interviews/interviews.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>inputValue</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showDetails"></a>
+                    <span class="name">
+                        <span ><b>showDetails</b></span>
+                        <a href="#showDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showDetails(interviewId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/views/interviews/interviews.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>interviewId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeTab"></a>
+                    <span class="name">
+                        <span ><b>activeTab</b></span>
+                        <a href="#activeTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;string&gt;(&#x27;Wszystkie&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/views/interviews/interviews.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataSource"></a>
+                    <span class="name">
+                        <span ><b>dataSource</b></span>
+                        <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IInterviewsModel.html" target="_self" >MatTableDataSource&lt;IInterviewsModel&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new MatTableDataSource()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/views/interviews/interviews.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialog"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dialog</b></span>
+                        <a href="#dialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatDialog</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/views/interviews/interviews.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                        <span ><b>displayedColumns</b></span>
+                        <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;school&#x27;, &#x27;date&#x27;, &#x27;classNumber&#x27;, &#x27;termsNumber&#x27;, &#x27;interviewTotalFiszki&#x27;, &#x27;actions&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/views/interviews/interviews.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="empTbSort"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>empTbSort</b></span>
+                        <a href="#empTbSort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new MatSort()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;empTbSort&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/views/interviews/interviews.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="injector"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>injector</b></span>
+                        <a href="#injector"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Injector</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/views/interviews/interviews.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="interviewFiszki"></a>
+                    <span class="name">
+                        <span ><b>interviewFiszki</b></span>
+                        <a href="#interviewFiszki"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InterviewFiszki(this.injector)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/views/interviews/interviews.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paginator"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>paginator</b></span>
+                        <a href="#paginator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatPaginator</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(MatPaginator)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/views/interviews/interviews.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabsLabels"></a>
+                    <span class="name">
+                        <span ><b>tabsLabels</b></span>
+                        <a href="#tabsLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Wszystkie&#x27;, &#x27;Do przypisania&#x27;, &#x27;Otwarte&#x27;, &#x27;Do sprawdzenia&#x27;, &#x27;Odrzucone&#x27;, &#x27;Zakończone&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/views/interviews/interviews.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Injector, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { InterviewsService } from &#x27;src/app/services/interviews/interviews.service&#x27;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { BehaviorSubject, combineLatest, map, startWith, switchMap } from &#x27;rxjs&#x27;;
+import { IInterviewsModel } from &#x27;src/app/models/interviews/interviews.model&#x27;;
+import { IUpdateInterviewsModel } from &#x27;src/app/models/interviews/update-interviews.model&#x27;;
+import { InterviewFormComponent } from &#x27;src/app/common/forms/interview-form/interview-form.component&#x27;;
+import { EditInterviewFormComponent } from &#x27;src/app/common/forms/edit-interview-form/edit-interview-form.component&#x27;;
+import { InterviewFiszki } from &#x27;src/app/utils/show-details&#x27;;
+import { MatTableDataSource } from &#x27;@angular/material/table&#x27;;
+import { MatPaginator } from &#x27;@angular/material/paginator&#x27;;
+import { MatSort } from &#x27;@angular/material/sort&#x27;;
+import { State } from &#x27;src/app/models/interviews/enum.model&#x27;;
+
+@Component({
+  selector: &#x27;app-interviews&#x27;,
+  templateUrl: &#x27;./interviews.component.html&#x27;,
+  styleUrl: &#x27;./interviews.component.scss&#x27;
+})
+export class InterviewsComponent implements OnInit {
+
+  constructor(
+    private interviewsService: InterviewsService,
+    public dialog: MatDialog,
+    public injector: Injector
+  ) { }
+
+  dataSource: MatTableDataSource&lt;IInterviewsModel&gt; &#x3D; new MatTableDataSource();
+  interviewFiszki &#x3D; new InterviewFiszki(this.injector)
+  displayedColumns: string[] &#x3D; [&#x27;school&#x27;, &#x27;date&#x27;, &#x27;classNumber&#x27;, &#x27;termsNumber&#x27;, &#x27;interviewTotalFiszki&#x27;, &#x27;actions&#x27;];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(&#x27;empTbSort&#x27;) empTbSort &#x3D; new MatSort();
+
+  tabsLabels &#x3D; [&#x27;Wszystkie&#x27;, &#x27;Do przypisania&#x27;, &#x27;Otwarte&#x27;, &#x27;Do sprawdzenia&#x27;, &#x27;Odrzucone&#x27;, &#x27;Zakończone&#x27;]
+  activeTab &#x3D; new BehaviorSubject&lt;string&gt;(&#x27;Wszystkie&#x27;);
+
+  ngOnInit(): void {
+    combineLatest([
+      this.interviewsService.interviewsHasChanged.pipe(
+        startWith(true),
+        switchMap(() &#x3D;&gt; this.interviewsService.getInterviews()),
+      ),
+      this.activeTab
+    ]
+    ).pipe(
+      map(([interviews, activeTab]) &#x3D;&gt; this.filterInterviewsByTab(interviews, activeTab))
+    ).subscribe(filteredInterviews &#x3D;&gt; {
+      this.dataSource.data &#x3D; filteredInterviews;
+    });
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource.sort &#x3D; this.empTbSort;
+    this.dataSource.paginator &#x3D; this.paginator;
+  }
+
+  filterInterviewsByTab(interviews: IInterviewsModel[], tab: string): IInterviewsModel[] {
+    switch (tab) {
+      case &#x27;Zakończone&#x27;:
+        return interviews.filter(interviews &#x3D;&gt; interviews.confirmed &#x3D;&#x3D;&#x3D; true);
+      case &#x27;Odrzucone&#x27;:
+        return interviews.filter(interviews &#x3D;&gt; interviews.state &#x3D;&#x3D;&#x3D; State.REJECT);
+      case &#x27;Do sprawdzenia&#x27;:
+        return interviews.filter(interviews &#x3D;&gt; interviews.state &#x3D;&#x3D;&#x3D; State.WAITINGFORAPROVE);
+      case &#x27;Otwarte&#x27;:
+        return interviews.filter(interviews &#x3D;&gt; interviews.state &#x3D;&#x3D;&#x3D; State.WIP);
+      case &#x27;Do przypisania&#x27;:
+        return interviews.filter(interviews &#x3D;&gt; interviews.userInterviews.length &#x3D;&#x3D;&#x3D; 0);
+      // case &#x27;Wszystkie&#x27;:
+      default:
+        return interviews;
+    }
+  }
+
+  onTabChange(tabLabel: string): void {
+    this.activeTab.next(tabLabel);
+  }
+
+  searchbarFilter(inputValue: string) {
+    this.dataSource.filter &#x3D; inputValue.trim().toLowerCase();
+    this.dataSource.data &#x3D; [...this.dataSource.data];
+  }
+
+  addBtnClick(): void {
+    console.log(&#x27;add new&#x27;);
+    this.dialog.open(InterviewFormComponent, { disableClose: true });
+  }
+
+  editBtnClick(event: Event, formData: IUpdateInterviewsModel): void {
+    event.stopPropagation();
+    this.dialog.open(EditInterviewFormComponent, {
+      data: formData,
+      disableClose: true
+    });
+  }
+
+  showDetails(interviewId: string): void {
+    this.interviewFiszki.showDetails(interviewId)
+  }
+
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;main&quot;&gt;
+  &lt;app-navbar&gt;&lt;/app-navbar&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;tableContainer&quot;&gt;
+      &lt;app-navigator-card
+        class&#x3D;&quot;navigator-card&quot;
+        [tabsLabels]&#x3D;&quot;tabsLabels&quot;
+        (tabChange)&#x3D;&quot;onTabChange($event)&quot;
+      &gt;&lt;/app-navigator-card&gt;
+      &lt;div class&#x3D;&quot;tableOptions&quot;&gt;
+        &lt;!-- FIXME: jak wyszukuje klase i przypisanego pracownika to nie szuka --&gt;
+        &lt;!-- moze wystarczy dodac do Klasa i Dodane przez filtrowanie przez wartosci jakie sa w kolumnie, np. Klasa: lista klas, wybieram konkretna klase i filtruje po niej --&gt;
+        &lt;!-- &#x27;school&#x27;, &#x27;date&#x27;, &#x27;classNumber&#x27;, &#x27;termsNumber&#x27;, &#x27;interviewTotalFiszki&#x27; --&gt;
+        &lt;app-searchbar
+          (childDataEvent)&#x3D;&quot;searchbarFilter($event)&quot;
+        &gt;&lt;/app-searchbar&gt;
+        &lt;button mat-button class&#x3D;&quot;btn&quot; (click)&#x3D;&quot;addBtnClick()&quot;&gt;
+          Dodaj wywiadówkę
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;table mat-table matSort #empTbSort&#x3D;&quot;matSort&quot; [dataSource]&#x3D;&quot;dataSource&quot;&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;school&quot;&gt;
+          &lt;th mat-header-cell *matHeaderCellDef&gt;Nazwa placówki&lt;/th&gt;
+          &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;{{ row.school.name }}&lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;date&quot;&gt;
+          &lt;th mat-header-cell *matHeaderCellDef&gt;Termin prezentacji&lt;/th&gt;
+          &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;{{ row.date | date: &#x27;dd/MM/yyyy&#x27; }}&lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;classNumber&quot;&gt;
+          &lt;th mat-header-cell *matHeaderCellDef&gt;Ilość klas&lt;/th&gt;
+          &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;{{ row.classNumber }}&lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;termsNumber&quot;&gt;
+          &lt;th mat-header-cell *matHeaderCellDef&gt;Ilość terminów&lt;/th&gt;
+          &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;{{ row.termsNumber }}&lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;interviewTotalFiszki&quot;&gt;
+          &lt;th mat-header-cell *matHeaderCellDef&gt;Suma fiszek&lt;/th&gt;
+          &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;{{ row.interviewTotalFiszki }}&lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container matColumnDef&#x3D;&quot;actions&quot;&gt;
+          &lt;th mat-header-cell *matHeaderCellDef class&#x3D;&quot;actionColumn&quot;&gt;&lt;/th&gt;
+          &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;
+            &lt;button mat-icon-button (click)&#x3D;&quot;editBtnClick($event, row)&quot;&gt;
+              &lt;mat-icon&gt;edit&lt;/mat-icon&gt;
+            &lt;/button&gt;
+          &lt;/td&gt;
+        &lt;/ng-container&gt;
+        &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
+        &lt;tr
+          mat-row
+          *matRowDef&#x3D;&quot;let interview; columns: displayedColumns&quot;
+          (click)&#x3D;&quot;showDetails(interview.id)&quot;
+        &gt;&lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+    &lt;mat-paginator
+      [length]&#x3D;&quot;dataSource.data.length&quot;
+      [pageSize]&#x3D;&quot;18&quot;
+      [pageSizeOptions]&#x3D;&quot;[5, 10, 15, 18]&quot;
+      aria-label&#x3D;&quot;Wybierz stronę&quot;
+    &gt;&lt;/mat-paginator&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="main">  <app-navbar></app-navbar>  <div class="container">    <div class="tableContainer">      <app-navigator-card        class="navigator-card"        [tabsLabels]="tabsLabels"        (tabChange)="onTabChange($event)"      ></app-navigator-card>      <div class="tableOptions">        <!-- FIXME: jak wyszukuje klase i przypisanego pracownika to nie szuka -->        <!-- moze wystarczy dodac do Klasa i Dodane przez filtrowanie przez wartosci jakie sa w kolumnie, np. Klasa: lista klas, wybieram konkretna klase i filtruje po niej -->        <!-- \'school\', \'date\', \'classNumber\', \'termsNumber\', \'interviewTotalFiszki\' -->        <app-searchbar          (childDataEvent)="searchbarFilter($event)"        ></app-searchbar>        <button mat-button class="btn" (click)="addBtnClick()">          Dodaj wywiadówkę        </button>      </div>      <table mat-table matSort #empTbSort="matSort" [dataSource]="dataSource">        <ng-container matColumnDef="school">          <th mat-header-cell *matHeaderCellDef>Nazwa placówki</th>          <td mat-cell *matCellDef="let row">{{ row.school.name }}</td>        </ng-container>        <ng-container matColumnDef="date">          <th mat-header-cell *matHeaderCellDef>Termin prezentacji</th>          <td mat-cell *matCellDef="let row">{{ row.date | date: \'dd/MM/yyyy\' }}</td>        </ng-container>        <ng-container matColumnDef="classNumber">          <th mat-header-cell *matHeaderCellDef>Ilość klas</th>          <td mat-cell *matCellDef="let row">{{ row.classNumber }}</td>        </ng-container>        <ng-container matColumnDef="termsNumber">          <th mat-header-cell *matHeaderCellDef>Ilość terminów</th>          <td mat-cell *matCellDef="let row">{{ row.termsNumber }}</td>        </ng-container>        <ng-container matColumnDef="interviewTotalFiszki">          <th mat-header-cell *matHeaderCellDef>Suma fiszek</th>          <td mat-cell *matCellDef="let row">{{ row.interviewTotalFiszki }}</td>        </ng-container>        <ng-container matColumnDef="actions">          <th mat-header-cell *matHeaderCellDef class="actionColumn"></th>          <td mat-cell *matCellDef="let row">            <button mat-icon-button (click)="editBtnClick($event, row)">              <mat-icon>edit</mat-icon>            </button>          </td>        </ng-container>        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>        <tr          mat-row          *matRowDef="let interview; columns: displayedColumns"          (click)="showDetails(interview.id)"        ></tr>      </table>    </div>    <mat-paginator      [length]="dataSource.data.length"      [pageSize]="18"      [pageSizeOptions]="[5, 10, 15, 18]"      aria-label="Wybierz stronę"    ></mat-paginator>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CancelBtnComponent', 'selector': 'app-cancel-btn'},{'name': 'ChangePassComponent', 'selector': 'app-ChangePass'},{'name': 'ClosePopupComponent', 'selector': 'app-close-popup'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactPersonFormComponent', 'selector': 'app-contact-person-form'},{'name': 'DataLossDialogComponent', 'selector': 'app-dataLoss-dialog'},{'name': 'EditFiszkaFormComponent', 'selector': 'app-edit-fiszka-form'},{'name': 'EditGroupFormComponent', 'selector': 'app-edit-group-form'},{'name': 'EditInterviewFormComponent', 'selector': 'app-edit-interview-form'},{'name': 'EditSchoolFormComponent', 'selector': 'app-school-form'},{'name': 'EditUserFormComponent', 'selector': 'app-edit-user-form'},{'name': 'ErrorPageComponent', 'selector': 'app-error-page'},{'name': 'FiszkaDetailsComponent', 'selector': 'app-fiszka-details'},{'name': 'FiszkaFormComponent', 'selector': 'app-fiszka-form'},{'name': 'FiszkiComponent', 'selector': 'app-fiszki'},{'name': 'GroupFiszkaFormComponent', 'selector': 'app-group-fiszka-form'},{'name': 'GroupFiszkiComponent', 'selector': 'app-group-fiszki'},{'name': 'GroupFormComponent', 'selector': 'app-group-form-component'},{'name': 'GroupsComponent', 'selector': 'app-groups'},{'name': 'InterviewFiszkiComponent', 'selector': 'app-interview-fiszki'},{'name': 'InterviewFormComponent', 'selector': 'app-interview-form'},{'name': 'InterviewsComponent', 'selector': 'app-interviews'},{'name': 'InterviewUserFormComponent', 'selector': 'app-interview-user-form'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavbarItemComponent', 'selector': 'app-navbar-item'},{'name': 'NavigatorCardComponent', 'selector': 'app-navigator-card'},{'name': 'PasswordStrengthComponent', 'selector': 'app-password-strength'},{'name': 'PhoneCallFormComponent', 'selector': 'app-phone-call-form'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SchoolDetailsComponent', 'selector': 'app-school-details'},{'name': 'SchoolFormComponent', 'selector': 'app-school-form'},{'name': 'SchoolsComponent', 'selector': 'app-schools'},{'name': 'SearchbarComponent', 'selector': 'app-searchbar'},{'name': 'StatsComponent', 'selector': 'app-stats'},{'name': 'SubmitBtnComponent', 'selector': 'app-submit-btn'},{'name': 'UserDetailsComponent', 'selector': 'app-details'},{'name': 'UserFormComponent', 'selector': 'app-form'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'InterviewsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'InterviewsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

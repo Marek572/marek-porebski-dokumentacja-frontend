@@ -1,0 +1,1789 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">front-end documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  StatsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/views/stats/stats.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-stats</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./stats.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./stats.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#chartOptions" >chartOptions</a>
+                            </li>
+                            <li>
+                                <a href="#regionChartData" >regionChartData</a>
+                            </li>
+                            <li>
+                                <a href="#regionChartLabels" >regionChartLabels</a>
+                            </li>
+                            <li>
+                                <a href="#regionChartOptions" >regionChartOptions</a>
+                            </li>
+                            <li>
+                                <a href="#regionStats" >regionStats</a>
+                            </li>
+                            <li>
+                                <a href="#regionStatsForm" >regionStatsForm</a>
+                            </li>
+                            <li>
+                                <a href="#schoolChartData" >schoolChartData</a>
+                            </li>
+                            <li>
+                                <a href="#schoolChartLabels" >schoolChartLabels</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#schoolService" >schoolService</a>
+                            </li>
+                            <li>
+                                <a href="#schoolsList" >schoolsList</a>
+                            </li>
+                            <li>
+                                <a href="#schoolStats" >schoolStats</a>
+                            </li>
+                            <li>
+                                <a href="#schoolStatsForm" >schoolStatsForm</a>
+                            </li>
+                            <li>
+                                <a href="#userChartData" >userChartData</a>
+                            </li>
+                            <li>
+                                <a href="#userChartLabels" >userChartLabels</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userService" >userService</a>
+                            </li>
+                            <li>
+                                <a href="#usersList" >usersList</a>
+                            </li>
+                            <li>
+                                <a href="#userStats" >userStats</a>
+                            </li>
+                            <li>
+                                <a href="#userStatsForm" >userStatsForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onRegionStatsFormSubmit" >onRegionStatsFormSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#onSchoolStatsFormSubmit" >onSchoolStatsFormSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#onUserStatsFormSubmit" >onUserStatsFormSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, schoolService: <a href="../injectables/SchoolsService.html" target="_self">SchoolsService</a>, formBuilder: FormBuilder)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/views/stats/stats.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>schoolService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolsService.html" target="_self" >SchoolsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/views/stats/stats.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRegionStatsFormSubmit"></a>
+                    <span class="name">
+                        <span ><b>onRegionStatsFormSubmit</b></span>
+                        <a href="#onRegionStatsFormSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRegionStatsFormSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="213"
+                                    class="link-to-prism">src/app/views/stats/stats.component.ts:213</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSchoolStatsFormSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSchoolStatsFormSubmit</b></span>
+                        <a href="#onSchoolStatsFormSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSchoolStatsFormSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="181"
+                                    class="link-to-prism">src/app/views/stats/stats.component.ts:181</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onUserStatsFormSubmit"></a>
+                    <span class="name">
+                        <span ><b>onUserStatsFormSubmit</b></span>
+                        <a href="#onUserStatsFormSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onUserStatsFormSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">src/app/views/stats/stats.component.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chartOptions"></a>
+                    <span class="name">
+                        <span ><b>chartOptions</b></span>
+                        <a href="#chartOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ChartOptions</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    color: &#x27;black&#x27;,
+    responsive: true,
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: &#x27;Data wywiadówki&#x27;,
+          color: &#x27;black&#x27;,
+          font: {
+            size: 15,
+            weight: &#x27;bold&#x27;
+          }
+        },
+        ticks: {
+          maxRotation: 0,
+          minRotation: 0,
+          color: &#x27;black&#x27;
+        },
+        grid: {
+          color: &#x27;black&#x27;
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: &#x27;Zebrane fiszki&#x27;,
+          color: &#x27;black&#x27;,
+          font: {
+            size: 15,
+            weight: &#x27;bold&#x27;
+          }
+        },
+        beginAtZero: true,
+        ticks: {
+          precision: 0,
+          color: &#x27;black&#x27;
+        },
+        grid: {
+          color: &#x27;black&#x27;
+        }
+      },
+    },
+    plugins: {
+      colors: {
+        enabled: true
+      },
+    }
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/views/stats/stats.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="regionChartData"></a>
+                    <span class="name">
+                        <span ><b>regionChartData</b></span>
+                        <a href="#regionChartData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ChartDataset[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/views/stats/stats.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="regionChartLabels"></a>
+                    <span class="name">
+                        <span ><b>regionChartLabels</b></span>
+                        <a href="#regionChartLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/views/stats/stats.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="regionChartOptions"></a>
+                    <span class="name">
+                        <span ><b>regionChartOptions</b></span>
+                        <a href="#regionChartOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>JSON.parse(JSON.stringify(this.chartOptions))</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/views/stats/stats.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="regionStats"></a>
+                    <span class="name">
+                        <span ><b>regionStats</b></span>
+                        <a href="#regionStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ISchoolInRegionStatsModel.html" target="_self" >ISchoolInRegionStatsModel[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/views/stats/stats.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="regionStatsForm"></a>
+                    <span class="name">
+                        <span ><b>regionStatsForm</b></span>
+                        <a href="#regionStatsForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/views/stats/stats.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolChartData"></a>
+                    <span class="name">
+                        <span ><b>schoolChartData</b></span>
+                        <a href="#schoolChartData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ChartDataset[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/views/stats/stats.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolChartLabels"></a>
+                    <span class="name">
+                        <span ><b>schoolChartLabels</b></span>
+                        <a href="#schoolChartLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/views/stats/stats.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>schoolService</b></span>
+                        <a href="#schoolService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/SchoolsService.html" target="_self" >SchoolsService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/views/stats/stats.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolsList"></a>
+                    <span class="name">
+                        <span ><b>schoolsList</b></span>
+                        <a href="#schoolsList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ISchoolModel.html" target="_self" >ISchoolModel[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/views/stats/stats.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolStats"></a>
+                    <span class="name">
+                        <span ><b>schoolStats</b></span>
+                        <a href="#schoolStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IStatsModel.html" target="_self" >IStatsModel[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/views/stats/stats.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolStatsForm"></a>
+                    <span class="name">
+                        <span ><b>schoolStatsForm</b></span>
+                        <a href="#schoolStatsForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/views/stats/stats.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userChartData"></a>
+                    <span class="name">
+                        <span ><b>userChartData</b></span>
+                        <a href="#userChartData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ChartDataset[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/views/stats/stats.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userChartLabels"></a>
+                    <span class="name">
+                        <span ><b>userChartLabels</b></span>
+                        <a href="#userChartLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/views/stats/stats.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>userService</b></span>
+                        <a href="#userService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/views/stats/stats.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usersList"></a>
+                    <span class="name">
+                        <span ><b>usersList</b></span>
+                        <a href="#usersList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IUserModel.html" target="_self" >IUserModel[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/views/stats/stats.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userStats"></a>
+                    <span class="name">
+                        <span ><b>userStats</b></span>
+                        <a href="#userStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IStatsModel.html" target="_self" >IStatsModel[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/views/stats/stats.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userStatsForm"></a>
+                    <span class="name">
+                        <span ><b>userStatsForm</b></span>
+                        <a href="#userStatsForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/views/stats/stats.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { ChartDataset, ChartOptions } from &#x27;chart.js&#x27;;
+import { IErrorAPIModel } from &#x27;src/app/models/errorAPI.model&#x27;;
+import { ISchoolModel } from &#x27;src/app/models/school/school.model&#x27;;
+import { ISchoolInRegionStatsModel, IStatsModel } from &#x27;src/app/models/stats/stats.model&#x27;;
+import { IUserModel } from &#x27;src/app/models/user/user.model&#x27;;
+import { SchoolsService } from &#x27;src/app/services/schools/schools.service&#x27;;
+import { UsersService } from &#x27;src/app/services/users/users.service&#x27;;
+
+@Component({
+  selector: &#x27;app-stats&#x27;,
+  templateUrl: &#x27;./stats.component.html&#x27;,
+  styleUrls: [&#x27;./stats.component.scss&#x27;]
+})
+export class StatsComponent implements OnInit {
+
+  constructor(
+    public userService: UsersService,
+    public schoolService: SchoolsService,
+    private formBuilder: FormBuilder,
+  ) { }
+
+  userStatsForm!: FormGroup;
+  schoolStatsForm!: FormGroup;
+  regionStatsForm!: FormGroup;
+
+  usersList: IUserModel[] &#x3D; [];
+  schoolsList: ISchoolModel[] &#x3D; [];
+
+  userStats: IStatsModel[] &#x3D; [];
+  userChartLabels: string[] &#x3D; []
+  userChartData: ChartDataset[] &#x3D; [];
+
+  schoolStats: IStatsModel[] &#x3D; [];
+  schoolChartLabels: string[] &#x3D; []
+  schoolChartData: ChartDataset[] &#x3D; [];
+
+  regionStats: ISchoolInRegionStatsModel[] &#x3D; [];
+  regionChartLabels: string[] &#x3D; []
+  regionChartData: ChartDataset[] &#x3D; [];
+
+  chartOptions: ChartOptions &#x3D; {
+    color: &#x27;black&#x27;,
+    responsive: true,
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: &#x27;Data wywiadówki&#x27;,
+          color: &#x27;black&#x27;,
+          font: {
+            size: 15,
+            weight: &#x27;bold&#x27;
+          }
+        },
+        ticks: {
+          maxRotation: 0,
+          minRotation: 0,
+          color: &#x27;black&#x27;
+        },
+        grid: {
+          color: &#x27;black&#x27;
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: &#x27;Zebrane fiszki&#x27;,
+          color: &#x27;black&#x27;,
+          font: {
+            size: 15,
+            weight: &#x27;bold&#x27;
+          }
+        },
+        beginAtZero: true,
+        ticks: {
+          precision: 0,
+          color: &#x27;black&#x27;
+        },
+        grid: {
+          color: &#x27;black&#x27;
+        }
+      },
+    },
+    plugins: {
+      colors: {
+        enabled: true
+      },
+    }
+  };
+
+  regionChartOptions &#x3D; JSON.parse(JSON.stringify(this.chartOptions));
+  
+
+  ngOnInit() {
+
+    this.regionChartOptions.scales.x.title.text &#x3D; &#x27;Nazwy placówek&#x27;;
+
+    this.userStatsForm &#x3D; this.formBuilder.group({
+      user: [&#x27;&#x27;, Validators.required],
+      startDate: [&#x27;&#x27;, Validators.required],
+      endDate: [&#x27;&#x27;, Validators.required],
+    }, { updateOn: &#x27;blur&#x27; })
+
+    this.userService.getUsers().subscribe((users: IUserModel[]) &#x3D;&gt; {
+      this.usersList &#x3D; users;
+    })
+
+    this.schoolStatsForm &#x3D; this.formBuilder.group({
+      school: [&#x27;&#x27;, Validators.required],
+      startDate: [&#x27;&#x27;, Validators.required],
+      endDate: [&#x27;&#x27;, Validators.required],
+    }, { updateOn: &#x27;blur&#x27; })
+
+    this.schoolService.getSchools().subscribe((schools: ISchoolModel[]) &#x3D;&gt; {
+      this.schoolsList &#x3D; schools;
+    })
+
+    this.regionStatsForm &#x3D; this.formBuilder.group({
+      startDate: [&#x27;&#x27;, Validators.required],
+      endDate: [&#x27;&#x27;, Validators.required],
+    }, { updateOn: &#x27;blur&#x27; })
+
+    let regionStartDate: Date &#x3D; new Date();
+    let regionEndDate: Date  &#x3D; new Date();
+    regionStartDate.setMonth(regionEndDate.getMonth() - 11);
+
+    this.userService.getRegionStatsInRange(regionStartDate, regionEndDate)
+      .subscribe({
+        next: (stats: ISchoolInRegionStatsModel[]) &#x3D;&gt; { this.regionStats &#x3D; stats },
+        error: (err: IErrorAPIModel) &#x3D;&gt; {
+          console.log(err);
+        },
+        complete: () &#x3D;&gt; {
+          this.regionChartLabels &#x3D; this.regionStats.map((stat: ISchoolInRegionStatsModel) &#x3D;&gt; stat.name);
+          this.regionChartData &#x3D; [
+            {
+              data: this.regionStats.map((stat: ISchoolInRegionStatsModel) &#x3D;&gt; stat.totalFiszki),
+              label: &#x27;Zebrane fiszki&#x27;,
+              backgroundColor: &#x27;orange&#x27;
+            }
+          ];
+        }
+      });
+
+  }
+
+  onUserStatsFormSubmit(): void {
+
+    if (this.userStatsForm.invalid)
+      return;
+
+    else {
+
+      const userId &#x3D; this.userStatsForm.get(&#x27;user&#x27;)?.value
+      const startDate &#x3D; this.userStatsForm.get(&#x27;startDate&#x27;)?.value
+      const endDate &#x3D; this.userStatsForm.get(&#x27;endDate&#x27;)?.value
+
+      this.userService.getUserStatsInRange(startDate, endDate, userId)
+        .subscribe({
+          next: (stats: IStatsModel[]) &#x3D;&gt; { this.userStats &#x3D; stats },
+          error: (err: IErrorAPIModel) &#x3D;&gt; {
+            console.log(err);
+          },
+          complete: () &#x3D;&gt; {
+            this.userChartLabels &#x3D; this.userStats.map((stat: IStatsModel) &#x3D;&gt; new Date(stat.date).toLocaleDateString(&#x27;default&#x27;, { day: &#x27;2-digit&#x27;, month: &#x27;2-digit&#x27; }));
+            this.userChartData &#x3D; [
+              {
+                data: this.userStats.map((stat: IStatsModel) &#x3D;&gt; stat.count),
+                label: &#x27;Zebrane fiszki&#x27;,
+                backgroundColor: &#x27;orange&#x27;
+              }
+            ];
+          }
+        })
+    }
+
+  }
+
+  onSchoolStatsFormSubmit(): void {
+
+    if (this.schoolStatsForm.invalid)
+      return;
+
+    else {
+
+      const schoolId &#x3D; this.schoolStatsForm.get(&#x27;school&#x27;)?.value
+      const startDate &#x3D; this.schoolStatsForm.get(&#x27;startDate&#x27;)?.value
+      const endDate &#x3D; this.schoolStatsForm.get(&#x27;endDate&#x27;)?.value
+
+      this.userService.getSchoolStatsInRange(schoolId, startDate, endDate)
+        .subscribe({
+          next: (stats: IStatsModel[]) &#x3D;&gt; { this.schoolStats &#x3D; stats },
+          error: (err: IErrorAPIModel) &#x3D;&gt; {
+            console.log(err);
+          },
+          complete: () &#x3D;&gt; {
+            this.schoolChartLabels &#x3D; this.schoolStats.map((stat: IStatsModel) &#x3D;&gt; new Date(stat.date).toLocaleDateString(&#x27;default&#x27;, { day: &#x27;2-digit&#x27;, month: &#x27;2-digit&#x27; }));
+            this.schoolChartData &#x3D; [
+              {
+                data: this.schoolStats.map((stat: IStatsModel) &#x3D;&gt; stat.count),
+                label: &#x27;Zebrane fiszki&#x27;,
+                backgroundColor: &#x27;orange&#x27;
+              }
+            ];
+          }
+        })
+    }
+
+  }
+
+  onRegionStatsFormSubmit(): void {
+
+    if (this.regionStatsForm.invalid)
+      return;
+
+    else {
+
+      const startDate &#x3D; this.regionStatsForm.get(&#x27;startDate&#x27;)?.value
+      const endDate &#x3D; this.regionStatsForm.get(&#x27;endDate&#x27;)?.value
+
+      this.userService.getRegionStatsInRange(startDate, endDate)
+        .subscribe({
+          next: (stats: ISchoolInRegionStatsModel[]) &#x3D;&gt; { this.regionStats &#x3D; stats, console.log(stats); },
+          error: (err: IErrorAPIModel) &#x3D;&gt; {
+            console.log(err);
+          },
+          complete: () &#x3D;&gt; {
+            this.regionChartLabels &#x3D; this.regionStats.map((stat: ISchoolInRegionStatsModel) &#x3D;&gt; stat.name);
+            this.regionChartData &#x3D; [
+              {
+                data: this.regionStats.map((stat: ISchoolInRegionStatsModel) &#x3D;&gt; stat.totalFiszki),
+                label: &#x27;Zebrane fiszki&#x27;,
+                backgroundColor: &#x27;orange&#x27;
+              }
+            ];
+          }
+        });
+    }
+
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;main&quot;&gt;
+  &lt;app-navbar&gt;&lt;/app-navbar&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;statsContainer&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;userStatsForm&quot; class&#x3D;&quot;chartInfo&quot;&gt;
+        &lt;mat-form-field&gt;
+          &lt;mat-select
+            placeholder&#x3D;&quot;Pracownik&quot;
+            formControlName&#x3D;&quot;user&quot;
+          &gt;
+            &lt;mat-option *ngFor&#x3D;&quot;let user of usersList&quot; [value]&#x3D;&quot;user.id&quot;&gt;
+              {{ user.name + &quot; &quot; + user.surname }}
+            &lt;/mat-option&gt;
+          &lt;/mat-select&gt;
+          &lt;mat-error&gt;
+            @if(userStatsForm.get(&#x27;user&#x27;)?.errors?.[&#x27;required&#x27;]){
+              Wybierz pracownika.
+            }
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field&gt;
+          &lt;input
+            matInput
+            formControlName&#x3D;&quot;startDate&quot;
+            [matDatepicker]&#x3D;&quot;userStartDate&quot;
+          /&gt;
+          &lt;mat-hint&gt;Data początkowa&lt;/mat-hint&gt;
+          &lt;mat-datepicker-toggle
+            matIconSuffix
+            [for]&#x3D;&quot;userStartDate&quot;
+          &gt;&lt;/mat-datepicker-toggle&gt;
+          &lt;mat-datepicker #userStartDate&gt;&lt;/mat-datepicker&gt;
+          &lt;mat-error&gt;
+            @if(userStatsForm.get(&#x27;startDate&#x27;)?.errors?.[&#x27;required&#x27;]){
+              Wybierz datę początkową.
+            }
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field&gt;
+          &lt;input matInput formControlName&#x3D;&quot;endDate&quot; [matDatepicker]&#x3D;&quot;userEndDate&quot; /&gt;
+          &lt;mat-hint&gt;Data początkowa&lt;/mat-hint&gt;
+          &lt;mat-datepicker-toggle
+            matIconSuffix
+            [for]&#x3D;&quot;userEndDate&quot;
+          &gt;&lt;/mat-datepicker-toggle&gt;
+          &lt;mat-datepicker #userEndDate&gt;&lt;/mat-datepicker&gt;
+          &lt;mat-error&gt;
+            @if(userStatsForm.get(&#x27;endDate&#x27;)?.errors?.[&#x27;required&#x27;]){
+              Wybierz datę końcową.
+            }
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+        &lt;button mat-button class&#x3D;&quot;btn submitBtn&quot; (click)&#x3D;&quot;onUserStatsFormSubmit()&quot;&gt;
+          Przycisk
+        &lt;/button&gt;
+      &lt;/form&gt;
+      &lt;div class&#x3D;&quot;chartContainer&quot;&gt;
+        &lt;div class&#x3D;&quot;chart&quot;&gt;
+          &lt;canvas
+            baseChart
+            type&#x3D;&quot;bar&quot;
+            [legend]&#x3D;&quot;true&quot;
+            [labels]&#x3D;&quot;userChartLabels&quot;
+            [datasets]&#x3D;&quot;userChartData&quot;
+            [options]&#x3D;&quot;chartOptions&quot;
+          &gt;&lt;/canvas&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;statsContainer&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;schoolStatsForm&quot; class&#x3D;&quot;chartInfo&quot;&gt;
+        &lt;mat-form-field&gt;
+          &lt;mat-select
+            placeholder&#x3D;&quot;Placówka&quot;
+            formControlName&#x3D;&quot;school&quot;
+          &gt;
+            &lt;mat-option *ngFor&#x3D;&quot;let school of schoolsList&quot; [value]&#x3D;&quot;school.id&quot;&gt;
+              {{ school.name }}
+            &lt;/mat-option&gt;
+          &lt;/mat-select&gt;
+          &lt;mat-error&gt;
+            @if(userStatsForm.get(&#x27;school&#x27;)?.errors?.[&#x27;required&#x27;]){
+              Wybierz placówkę.
+            }
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field&gt;
+          &lt;input
+            matInput
+            formControlName&#x3D;&quot;startDate&quot;
+            [matDatepicker]&#x3D;&quot;schoolStartDate&quot;
+          /&gt;
+          &lt;mat-hint&gt;Data początkowa&lt;/mat-hint&gt;
+          &lt;mat-datepicker-toggle
+            matIconSuffix
+            [for]&#x3D;&quot;schoolStartDate&quot;
+          &gt;&lt;/mat-datepicker-toggle&gt;
+          &lt;mat-datepicker #schoolStartDate&gt;&lt;/mat-datepicker&gt;
+          &lt;mat-error&gt;
+            @if(userStatsForm.get(&#x27;startDate&#x27;)?.errors?.[&#x27;required&#x27;]){
+              Wybierz datę początkową.
+            }
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field&gt;
+          &lt;input matInput formControlName&#x3D;&quot;endDate&quot; [matDatepicker]&#x3D;&quot;schoolEndDate&quot; /&gt;
+          &lt;mat-hint&gt;Data początkowa&lt;/mat-hint&gt;
+          &lt;mat-datepicker-toggle
+            matIconSuffix
+            [for]&#x3D;&quot;schoolEndDate&quot;
+          &gt;&lt;/mat-datepicker-toggle&gt;
+          &lt;mat-datepicker #schoolEndDate&gt;&lt;/mat-datepicker&gt;
+          &lt;mat-error&gt;
+            @if(userStatsForm.get(&#x27;endDate&#x27;)?.errors?.[&#x27;required&#x27;]){
+              Wybierz datę końcową.
+            }
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+        &lt;button mat-button class&#x3D;&quot;btn submitBtn&quot; (click)&#x3D;&quot;onSchoolStatsFormSubmit()&quot;&gt;
+          Przycisk
+        &lt;/button&gt;
+      &lt;/form&gt;
+      &lt;div class&#x3D;&quot;chartContainer&quot;&gt;
+        &lt;div class&#x3D;&quot;chart&quot;&gt;
+          &lt;canvas
+            baseChart
+            type&#x3D;&quot;bar&quot;
+            [legend]&#x3D;&quot;true&quot;
+            [labels]&#x3D;&quot;schoolChartLabels&quot;
+            [datasets]&#x3D;&quot;schoolChartData&quot;
+            [options]&#x3D;&quot;chartOptions&quot;
+          &gt;&lt;/canvas&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;statsContainer&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;regionStatsForm&quot; class&#x3D;&quot;chartInfo&quot;&gt;
+        &lt;mat-form-field&gt;
+          &lt;input
+            matInput
+            formControlName&#x3D;&quot;startDate&quot;
+            [matDatepicker]&#x3D;&quot;regionStartDate&quot;
+          /&gt;
+          &lt;mat-hint&gt;Data początkowa&lt;/mat-hint&gt;
+          &lt;mat-datepicker-toggle
+            matIconSuffix
+            [for]&#x3D;&quot;regionStartDate&quot;
+          &gt;&lt;/mat-datepicker-toggle&gt;
+          &lt;mat-datepicker #regionStartDate&gt;&lt;/mat-datepicker&gt;
+          &lt;mat-error&gt;
+            @if(userStatsForm.get(&#x27;startDate&#x27;)?.errors?.[&#x27;required&#x27;]){
+              Wybierz datę początkową.
+            }
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field&gt;
+          &lt;input matInput formControlName&#x3D;&quot;endDate&quot; [matDatepicker]&#x3D;&quot;regionEndDate&quot; /&gt;
+          &lt;mat-hint&gt;Data początkowa&lt;/mat-hint&gt;
+          &lt;mat-datepicker-toggle
+            matIconSuffix
+            [for]&#x3D;&quot;regionEndDate&quot;
+          &gt;&lt;/mat-datepicker-toggle&gt;
+          &lt;mat-datepicker #regionEndDate&gt;&lt;/mat-datepicker&gt;
+          &lt;mat-error&gt;
+            @if(userStatsForm.get(&#x27;endDate&#x27;)?.errors?.[&#x27;required&#x27;]){
+              Wybierz datę końcową.
+            }
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+        &lt;button mat-button class&#x3D;&quot;btn submitBtn&quot; (click)&#x3D;&quot;onRegionStatsFormSubmit()&quot;&gt;
+          Przycisk
+        &lt;/button&gt;
+      &lt;/form&gt;
+      &lt;div class&#x3D;&quot;chartContainer&quot;&gt;
+        &lt;div class&#x3D;&quot;chart&quot;&gt;
+          &lt;canvas
+            baseChart
+            type&#x3D;&quot;bar&quot;
+            [legend]&#x3D;&quot;true&quot;
+            [labels]&#x3D;&quot;regionChartLabels&quot;
+            [datasets]&#x3D;&quot;regionChartData&quot;
+            [options]&#x3D;&quot;regionChartOptions&quot;
+          &gt;&lt;/canvas&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./stats.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;../../../colors.scss&quot;;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.statsContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.chartInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chartContainer {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart {
+  width: 100%;
+  height: 300px;
+}
+
+mat-form-field {
+  width: 70%;
+  // height: 65px;
+  margin-bottom: 10px;
+}
+
+.inputStyle,
+mat-select {
+  height: 30px;
+  padding: 0;
+}
+
+input,
+mat-option {
+  color: map-get($white, default);
+}
+
+mat-option {
+  background: map-get($gray, default);
+}
+
+.btn {
+  border-radius: 8px;
+  width: 120px;
+  height: 35px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitBtn {
+  background: map-get($green, default);
+  color: map-get($white, default);
+}
+
+mat-hint {
+  font-size: 0.8rem;
+}
+
+mat-error {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  color: map-get($red, default);
+}
+
+::ng-deep {
+  .mat-datepicker-content {
+    min-height: auto;
+  }
+
+  .mat-calendar {
+    height: auto;
+    border: 1px solid map-get($white, default);
+    border-radius: 5px;
+    background-color: map-get($gray, default);
+    color: map-get($white, default);
+
+    .mat-calendar-header {
+      background-color: map-get($gray, default);
+      border-radius: 5px;
+    }
+
+    .mat-calendar-table-header {
+      background-color: map-get($gray, default) !important;
+      padding: 0;
+    }
+
+    .mat-calendar-body-cell-content {
+      color: map-get($white, default);
+
+      &amp;:not(.mat-calendar-body-selected):hover {
+        &amp;:hover {
+          background-color: map-get($gray, light) !important;
+          color: map-get($white, default);
+        }
+      }
+    }
+
+    .mat-calendar-body-selected {
+      background-color: map-get($orange, default);
+      color: map-get($white, default);
+    }
+
+    .mat-calendar-controls {
+      margin: 0;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="main">  <app-navbar></app-navbar>  <div class="container">    <div class="statsContainer">      <form [formGroup]="userStatsForm" class="chartInfo">        <mat-form-field>          <mat-select            placeholder="Pracownik"            formControlName="user"          >            <mat-option *ngFor="let user of usersList" [value]="user.id">              {{ user.name + " " + user.surname }}            </mat-option>          </mat-select>          <mat-error>            @if(userStatsForm.get(\'user\')?.errors?.[\'required\']){              Wybierz pracownika.            }          </mat-error>        </mat-form-field>        <mat-form-field>          <input            matInput            formControlName="startDate"            [matDatepicker]="userStartDate"          />          <mat-hint>Data początkowa</mat-hint>          <mat-datepicker-toggle            matIconSuffix            [for]="userStartDate"          ></mat-datepicker-toggle>          <mat-datepicker #userStartDate></mat-datepicker>          <mat-error>            @if(userStatsForm.get(\'startDate\')?.errors?.[\'required\']){              Wybierz datę początkową.            }          </mat-error>        </mat-form-field>        <mat-form-field>          <input matInput formControlName="endDate" [matDatepicker]="userEndDate" />          <mat-hint>Data początkowa</mat-hint>          <mat-datepicker-toggle            matIconSuffix            [for]="userEndDate"          ></mat-datepicker-toggle>          <mat-datepicker #userEndDate></mat-datepicker>          <mat-error>            @if(userStatsForm.get(\'endDate\')?.errors?.[\'required\']){              Wybierz datę końcową.            }          </mat-error>        </mat-form-field>        <button mat-button class="btn submitBtn" (click)="onUserStatsFormSubmit()">          Przycisk        </button>      </form>      <div class="chartContainer">        <div class="chart">          <canvas            baseChart            type="bar"            [legend]="true"            [labels]="userChartLabels"            [datasets]="userChartData"            [options]="chartOptions"          ></canvas>        </div>      </div>    </div>    <div class="statsContainer">      <form [formGroup]="schoolStatsForm" class="chartInfo">        <mat-form-field>          <mat-select            placeholder="Placówka"            formControlName="school"          >            <mat-option *ngFor="let school of schoolsList" [value]="school.id">              {{ school.name }}            </mat-option>          </mat-select>          <mat-error>            @if(userStatsForm.get(\'school\')?.errors?.[\'required\']){              Wybierz placówkę.            }          </mat-error>        </mat-form-field>        <mat-form-field>          <input            matInput            formControlName="startDate"            [matDatepicker]="schoolStartDate"          />          <mat-hint>Data początkowa</mat-hint>          <mat-datepicker-toggle            matIconSuffix            [for]="schoolStartDate"          ></mat-datepicker-toggle>          <mat-datepicker #schoolStartDate></mat-datepicker>          <mat-error>            @if(userStatsForm.get(\'startDate\')?.errors?.[\'required\']){              Wybierz datę początkową.            }          </mat-error>        </mat-form-field>        <mat-form-field>          <input matInput formControlName="endDate" [matDatepicker]="schoolEndDate" />          <mat-hint>Data początkowa</mat-hint>          <mat-datepicker-toggle            matIconSuffix            [for]="schoolEndDate"          ></mat-datepicker-toggle>          <mat-datepicker #schoolEndDate></mat-datepicker>          <mat-error>            @if(userStatsForm.get(\'endDate\')?.errors?.[\'required\']){              Wybierz datę końcową.            }          </mat-error>        </mat-form-field>        <button mat-button class="btn submitBtn" (click)="onSchoolStatsFormSubmit()">          Przycisk        </button>      </form>      <div class="chartContainer">        <div class="chart">          <canvas            baseChart            type="bar"            [legend]="true"            [labels]="schoolChartLabels"            [datasets]="schoolChartData"            [options]="chartOptions"          ></canvas>        </div>      </div>    </div>    <div class="statsContainer">      <form [formGroup]="regionStatsForm" class="chartInfo">        <mat-form-field>          <input            matInput            formControlName="startDate"            [matDatepicker]="regionStartDate"          />          <mat-hint>Data początkowa</mat-hint>          <mat-datepicker-toggle            matIconSuffix            [for]="regionStartDate"          ></mat-datepicker-toggle>          <mat-datepicker #regionStartDate></mat-datepicker>          <mat-error>            @if(userStatsForm.get(\'startDate\')?.errors?.[\'required\']){              Wybierz datę początkową.            }          </mat-error>        </mat-form-field>        <mat-form-field>          <input matInput formControlName="endDate" [matDatepicker]="regionEndDate" />          <mat-hint>Data początkowa</mat-hint>          <mat-datepicker-toggle            matIconSuffix            [for]="regionEndDate"          ></mat-datepicker-toggle>          <mat-datepicker #regionEndDate></mat-datepicker>          <mat-error>            @if(userStatsForm.get(\'endDate\')?.errors?.[\'required\']){              Wybierz datę końcową.            }          </mat-error>        </mat-form-field>        <button mat-button class="btn submitBtn" (click)="onRegionStatsFormSubmit()">          Przycisk        </button>      </form>      <div class="chartContainer">        <div class="chart">          <canvas            baseChart            type="bar"            [legend]="true"            [labels]="regionChartLabels"            [datasets]="regionChartData"            [options]="regionChartOptions"          ></canvas>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CancelBtnComponent', 'selector': 'app-cancel-btn'},{'name': 'ChangePassComponent', 'selector': 'app-ChangePass'},{'name': 'ClosePopupComponent', 'selector': 'app-close-popup'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactPersonFormComponent', 'selector': 'app-contact-person-form'},{'name': 'DataLossDialogComponent', 'selector': 'app-dataLoss-dialog'},{'name': 'EditFiszkaFormComponent', 'selector': 'app-edit-fiszka-form'},{'name': 'EditGroupFormComponent', 'selector': 'app-edit-group-form'},{'name': 'EditInterviewFormComponent', 'selector': 'app-edit-interview-form'},{'name': 'EditSchoolFormComponent', 'selector': 'app-school-form'},{'name': 'EditUserFormComponent', 'selector': 'app-edit-user-form'},{'name': 'ErrorPageComponent', 'selector': 'app-error-page'},{'name': 'FiszkaDetailsComponent', 'selector': 'app-fiszka-details'},{'name': 'FiszkaFormComponent', 'selector': 'app-fiszka-form'},{'name': 'FiszkiComponent', 'selector': 'app-fiszki'},{'name': 'GroupFiszkaFormComponent', 'selector': 'app-group-fiszka-form'},{'name': 'GroupFiszkiComponent', 'selector': 'app-group-fiszki'},{'name': 'GroupFormComponent', 'selector': 'app-group-form-component'},{'name': 'GroupsComponent', 'selector': 'app-groups'},{'name': 'InterviewFiszkiComponent', 'selector': 'app-interview-fiszki'},{'name': 'InterviewFormComponent', 'selector': 'app-interview-form'},{'name': 'InterviewsComponent', 'selector': 'app-interviews'},{'name': 'InterviewUserFormComponent', 'selector': 'app-interview-user-form'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavbarItemComponent', 'selector': 'app-navbar-item'},{'name': 'NavigatorCardComponent', 'selector': 'app-navigator-card'},{'name': 'PasswordStrengthComponent', 'selector': 'app-password-strength'},{'name': 'PhoneCallFormComponent', 'selector': 'app-phone-call-form'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SchoolDetailsComponent', 'selector': 'app-school-details'},{'name': 'SchoolFormComponent', 'selector': 'app-school-form'},{'name': 'SchoolsComponent', 'selector': 'app-schools'},{'name': 'SearchbarComponent', 'selector': 'app-searchbar'},{'name': 'StatsComponent', 'selector': 'app-stats'},{'name': 'SubmitBtnComponent', 'selector': 'app-submit-btn'},{'name': 'UserDetailsComponent', 'selector': 'app-details'},{'name': 'UserFormComponent', 'selector': 'app-form'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'StatsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

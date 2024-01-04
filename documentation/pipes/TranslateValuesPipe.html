@@ -1,0 +1,397 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">front-end documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content pipe">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Pipes</li>
+  <li class="breadcrumb-item" >TranslateValuesPipe</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/common/pipes/translateValues/translateValues.pipe.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-metadata">
+            <h3>Metadata</h3>
+            <table class="table table-sm table-hover metadata">
+                <tbody>
+                    <tr>
+                        <td class="col-md-3">Name</td>
+                        <td class="col-md-9">translateValues</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transform"></a>
+                    <span class="name">
+                        <span ><b>transform</b></span>
+                        <a href="#transform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>transform(value: Role | Job | Type | Status | Province | DaysOfTheWeek | Subject)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="12"
+                                    class="link-to-prism">src/app/common/pipes/translateValues/translateValues.pipe.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                        <code>Role | Job | Type | Status | Province | DaysOfTheWeek | Subject</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
+import { Job, Role } from &#x27;src/app/models/user/enum.model&#x27;;
+import { Province, Status, Type } from &#x27;src/app/models/school/enum.model&#x27;;
+import { DaysOfTheWeek } from &#x27;src/app/models/daysOfTheWeek.model&#x27;
+import { Subject } from &#x27;src/app/models/group/enum.model&#x27;;
+
+@Pipe({
+  name: &#x27;translateValues&#x27;
+})
+export class TranslateValuesPipe implements PipeTransform {
+
+  transform(value: Role | Job | Type | Status | Province | DaysOfTheWeek | Subject): string {
+    const roleLabels: { [key in Role]: string } &#x3D; {
+      [Role.MGTMT]: &#x27;Zarząd&#x27;,
+      [Role.RD]: &#x27;Dyrektor regionalny&#x27;,
+      [Role.CA]: &#x27;Asystent centralny&#x27;,
+      [Role.USER]: &#x27;Użytkownik&#x27;
+    };
+    const jobLabels: { [key in Job]: string } &#x3D; {
+      [Job.EDUCATIONMGR]: &#x27;Menadżer edukacji&#x27;,
+      [Job.CAS]: &#x27;CAS&#x27;,
+      [Job.ROBOTICSINSTRUCTOR]: &#x27;Instruktor robotyki&#x27;,
+      [Job.PROGRAMINGINSTRUCTOR]: &#x27;Instruktor programowania&#x27;,
+      [Job.LECTOR]: &#x27;Lektor&#x27;,
+      [Job.FLYER]: &#x27;Ulotkarz&#x27;,
+      [Job.OTHER]: &#x27;Inne&#x27;
+    };
+    const typeLabels: { [key in Type]: string } &#x3D; {
+      [Type.PRK]: &#x27;Przedszkole prywatne&#x27;,
+      [Type.PUK]: &#x27;Przedszkole publiczne&#x27;,
+      [Type.PPS]: &#x27;Szkoła podstawowa publiczna&#x27;,
+      [Type.PRPS]: &#x27;Szkoła podstawowa prywatna&#x27;,
+      [Type.HS]: &#x27;Szkoła srednia&#x27;,
+      [Type.O]: &#x27;Inne&#x27;
+    }
+    const statusLabels: { [key in Status]: string } &#x3D; {
+      [Status.PD]: &#x27;Po tel- brak zgody&#x27;,
+      [Status.PA]: &#x27;Po tel - zgody&#x27;,
+      [Status.PND]: &#x27;Po tel - brak decyzji&#x27;,
+      [Status.VD]: &#x27;Po wizycie - brak zgody&#x27;,
+      [Status.VA]: &#x27;Po wizycie - zgoda&#x27;,
+      [Status.VND]: &#x27;Po wizycie - brak decyzji&#x27;,
+      [Status.NC]: &#x27;Brak kontaktu z dyrekcją&#x27;
+    }
+    const provinceLabels: { [key in Province]: string } &#x3D; {
+      [Province.Dolnoslaskie]: &#x27;Dolnoślaskie&#x27;,
+      [Province.KujawskoPomorskie]: &#x27;Kujawsko Pomorskie&#x27;,
+      [Province.Lubelskie]: &#x27;Lubelskie&#x27;,
+      [Province.Lubuskie]: &#x27;Lubuskie&#x27;,
+      [Province.Lodzkie]: &#x27;Łódzkie&#x27;,
+      [Province.Malopolskie]: &#x27;Małopolskie&#x27;,
+      [Province.Mazowieckie]: &#x27;Mazowieckie&#x27;,
+      [Province.Opolskie]: &#x27;Opolskie&#x27;,
+      [Province.Podkarpackie]: &#x27;Podkarpackie&#x27;,
+      [Province.Podlaskie]: &#x27;Podlaskie&#x27;,
+      [Province.Pomorskie]: &#x27;Pomorskie&#x27;,
+      [Province.Slaskie]: &#x27;Ślaskie&#x27;,
+      [Province.Swietokrzyskie]: &#x27;Świetokrzyskie&#x27;,
+      [Province.WarminskoMazurskie]: &#x27;Warminsko Mazurskie&#x27;,
+      [Province.Wielkopolskie]: &#x27;Wielkopolskie&#x27;,
+      [Province.ZachodnioPomorskie]: &#x27;Zachodnio Pomorskie&#x27;
+    }
+    const daysOfWeekLabels: { [key in DaysOfTheWeek]: string } &#x3D; {
+      [DaysOfTheWeek.MONDAY]: &#x27;Poniedziałek&#x27;,
+      [DaysOfTheWeek.TUESDAY]: &#x27;Wtorek&#x27;,
+      [DaysOfTheWeek.WEDNESDAY]: &#x27;Środa&#x27;,
+      [DaysOfTheWeek.THURSDAY]: &#x27;Czwartek&#x27;,
+      [DaysOfTheWeek.FRIDAY]: &#x27;Piątek&#x27;,
+      [DaysOfTheWeek.SATURDAY]: &#x27;Sobota&#x27;,
+      [DaysOfTheWeek.SUNDAY]: &#x27;Niedziela&#x27;,
+    }
+    const subjectList: { [key in Subject]: string } &#x3D; {
+      [Subject.ROBOTICS]: &#x27;Robotyka&#x27;,
+      [Subject.PROGGRAMING]: &#x27;Programowanie&#x27;,
+    };
+    if (Object.values(Role).includes(value as Role)) {
+      return roleLabels[value as Role];
+    }
+    if (Object.values(Job).includes(value as Job)) {
+      return jobLabels[value as Job];
+    }
+    if (Object.values(Type).includes(value as Type)) {
+      return typeLabels[value as Type];
+    }
+    if (Object.values(Status).includes(value as Status)) {
+      return statusLabels[value as Status];
+    }
+    if (Object.values(Province).includes(value as Province)) {
+      return provinceLabels[value as Province];
+    }
+    if (Object.values(DaysOfTheWeek).includes(value as DaysOfTheWeek)) {
+      return daysOfWeekLabels[value as DaysOfTheWeek];
+    }
+    if (Object.values(Subject).includes(value as Subject)) {
+      return subjectList[value as Subject];
+    }
+    return value;
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'pipe';
+            var COMPODOC_CURRENT_PAGE_URL = 'TranslateValuesPipe.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

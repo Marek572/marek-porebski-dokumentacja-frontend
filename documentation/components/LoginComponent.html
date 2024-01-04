@@ -1,0 +1,1010 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">front-end documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LoginComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/views/login/login.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./login.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#email" >email</a>
+                            </li>
+                            <li>
+                                <a href="#hide" >hide</a>
+                            </li>
+                            <li>
+                                <a href="#rememberMe" >rememberMe</a>
+                            </li>
+                            <li>
+                                <a href="#userForm" >userForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onChangeRememberMe" >onChangeRememberMe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router, formBuilder: FormBuilder)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/views/login/login.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/app/views/login/login.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeRememberMe"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onChangeRememberMe</b></span>
+                        <a href="#onChangeRememberMe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onChangeRememberMe()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/views/login/login.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onSubmit(formData: <a href="../interfaces/ILoginModel.html" target="_self">ILoginModel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/app/views/login/login.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>formData</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ILoginModel.html" target="_self" >ILoginModel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="email"></a>
+                    <span class="name">
+                        <span ><b>email</b></span>
+                        <a href="#email"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/views/login/login.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hide"></a>
+                    <span class="name">
+                        <span ><b>hide</b></span>
+                        <a href="#hide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/views/login/login.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rememberMe"></a>
+                    <span class="name">
+                        <span ><b>rememberMe</b></span>
+                        <a href="#rememberMe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/views/login/login.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userForm"></a>
+                    <span class="name">
+                        <span ><b>userForm</b></span>
+                        <a href="#userForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/views/login/login.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { IErrorAPIModel } from &#x27;src/app/models/errorAPI.model&#x27;;
+import { ILoginModel } from &#x27;src/app/models/login.mode&#x27;;
+import { AuthService } from &#x27;src/app/services/auth/auth.service&#x27;;
+import { handleError } from &#x27;src/app/utils/common-functions&#x27;;
+
+@Component({
+  selector: &#x27;app-login&#x27;,
+  templateUrl: &#x27;./login.component.html&#x27;,
+  styleUrls: [&#x27;./login.component.scss&#x27;]
+})
+export class LoginComponent {
+
+  constructor(private authService: AuthService, @Inject(Router) private router: Router, private formBuilder: FormBuilder) { }
+  userForm!: FormGroup;
+  hide: boolean &#x3D; true;
+  email: string | null &#x3D; &#x27;&#x27;;
+  rememberMe: boolean &#x3D; false;
+
+  ngOnInit() {
+
+    if(localStorage.getItem(&#x27;rememberMe&#x27;))
+      this.rememberMe &#x3D; true;
+
+    if (localStorage.getItem(&#x27;email&#x27;) !&#x3D; null)
+      this.email &#x3D; localStorage.getItem(&#x27;email&#x27;)
+
+    this.userForm &#x3D; this.formBuilder.group({
+      email: [this.email, Validators.compose([
+        Validators.required,
+        Validators.email
+      ])],
+      password: [&#x27;&#x27;, Validators.required]
+
+    })
+  }
+
+  async onChangeRememberMe() {
+    this.rememberMe &#x3D; !this.rememberMe
+  }
+
+  async onSubmit(formData: ILoginModel) {
+
+    if (this.rememberMe) {
+      localStorage.setItem(&#x27;rememberMe&#x27;, &#x27;true&#x27;);
+      localStorage.setItem(&#x27;email&#x27;, formData.email);
+    }else{
+      localStorage.removeItem(&#x27;rememberMe&#x27;);
+      localStorage.removeItem(&#x27;email&#x27;);
+    }
+
+    this.authService.login(formData).subscribe({
+      next: () &#x3D;&gt; {},
+      error: (err: IErrorAPIModel) &#x3D;&gt; { handleError(this.userForm, err) },
+    });
+
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;login-container&quot;&gt;
+  &lt;div class&#x3D;&quot;left-section&quot;&gt;
+    &lt;div class&#x3D;&quot;left-img&quot;&gt;&lt;/div&gt;
+    &lt;div class&#x3D;&quot;img-opacity&quot;&gt;&lt;/div&gt;
+    &lt;div class&#x3D;&quot;left-title&quot;&gt;
+      &lt;div class&#x3D;&quot;left-title-up&quot;&gt;Witaj w&lt;/div&gt;
+      &lt;div class&#x3D;&quot;logo-display&quot;&gt;
+        &lt;div class&#x3D;&quot;logo-EdWings&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;right-section&quot;&gt;
+    &lt;div class&#x3D;&quot;right-top-img&quot;&gt;&lt;/div&gt;
+    &lt;div class&#x3D;&quot;right-bottom-img&quot;&gt;&lt;/div&gt;
+    &lt;div class&#x3D;&quot;right-title&quot;&gt;
+      &lt;span&gt;Zaloguj się&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;form [formGroup]&#x3D;&quot;userForm&quot; class&#x3D;&quot;formStyle&quot; (ngSubmit)&#x3D;&quot;onSubmit(userForm.value)&quot;&gt;
+      &lt;div class&#x3D;&quot;formContainer&quot; matDialogContent&gt;
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;div class&#x3D;&quot;inputStyle&quot;&gt;
+            &lt;mat-icon&gt;person&lt;/mat-icon&gt;
+            &lt;input matInput formControlName&#x3D;&quot;email&quot; placeholder&#x3D;&quot;Email&quot; /&gt;
+          &lt;/div&gt;
+          &lt;mat-error&gt;
+            @if (this.userForm.get(&#x27;email&#x27;)?.hasError(&#x27;required&#x27;)) { Email jest
+            wymagane } @if(this.userForm.get(&#x27;email&#x27;)?.hasError(&#x27;email&#x27;)) {
+            Niepoprawny adres email. Wprowadź prawidłowy adres email, np.
+            jan.kowalski&amp;#64;email.pl. }
+            @if(this.userForm.get(&#x27;email&#x27;)?.hasError(&#x27;serverErrorEmail&#x27;)) {
+            {{ this.userForm.get(&quot;email&quot;)?.getError(&quot;serverErrorEmail&quot;) }}
+            }
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+          &lt;div class&#x3D;&quot;inputStyle&quot;&gt;
+            &lt;mat-icon&gt;lock&lt;/mat-icon&gt;
+            &lt;input [type]&#x3D;&quot;hide ? &#x27;password&#x27; : &#x27;text&#x27;&quot; matInput formControlName&#x3D;&quot;password&quot; placeholder&#x3D;&quot;Hasło&quot; /&gt;
+            &lt;button type&#x3D;&quot;button&quot; mat-icon-button matSuffix (click)&#x3D;&quot;hide &#x3D; !hide&quot; [attr.aria-label]&#x3D;&quot;&#x27;Hide password&#x27;&quot;
+              [attr.aria-pressed]&#x3D;&quot;hide&quot;&gt;
+              &lt;mat-icon&gt;
+                {{ hide ? &quot;visibility_off&quot; : &quot;visibility&quot; }}
+              &lt;/mat-icon&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;mat-error&gt;
+            @if ( this.userForm.get(&#x27;password&#x27;)?.hasError(&#x27;required&#x27;)) { Hasło jest wymagane. }
+            @if(this.userForm.get(&#x27;password&#x27;)?.hasError(&#x27;serverErrorPass&#x27;)) 
+            {
+            {{ this.userForm.get(&quot;password&quot;)?.getError(&quot;serverErrorPass&quot;) }}
+            }
+          &lt;/mat-error&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;mat-checkbox [checked]&#x3D;&quot;rememberMe&quot; (change)&#x3D;&quot;onChangeRememberMe()&quot;&gt;
+          Zapamiętaj mnie
+        &lt;/mat-checkbox&gt;
+
+        &lt;button mat-button type&#x3D;&quot;submit&quot; (click)&#x3D;&quot;onSubmit(userForm.value)&quot;&gt;
+          &lt;div class&#x3D;&quot;submitBtn&quot;&gt;Zaloguj&lt;/div&gt;
+        &lt;/button&gt;
+    
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./login.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;./../../../colors.scss&quot;;
+
+.formStyle {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 250px;
+  width: 500px;
+}
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: map-get($black, default);
+  width: 120px;
+  height: 40px;
+}
+.mat-mdc-checkbox {
+  font-size: 20px;
+  margin-top: -10px;
+}
+mat-form-field {
+  width: 80%;
+  margin-bottom: 30px;
+}
+.mat-mdc-form-field-error {
+  display: flex;
+  flex-direction: column;
+}
+.mdc-button {
+  width: 120px;
+  height: 40px;
+  width: fit-content;
+  background-color: #fcfcfc;
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgb(77, 77, 77);
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  :hover {
+    background-color: rgba(232, 147, 43, 0.165);
+    border-radius: 20px;
+  }
+}
+.logo-color {
+  color: map-get($orange, default);
+}
+.left-title-up {
+  font-size: 4.5rem;
+  margin-bottom: -100px;
+}
+.logo-display {
+  display: flex;
+}
+.logo-EdWings {
+  background-image: url(&quot;./img/logo_EdWings.png&quot;); // tutaj podaj ścieżkę do zdjęcia
+  background-size: cover;
+  height: 300px;
+  width: 700px;
+}
+.left-img {
+  background-image: url(&quot;./img/linie_lewa.png&quot;); // tutaj podaj ścieżkę do zdjęcia
+  background-size: cover;
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  top: 0;
+  left: 0;
+}
+.right-top-img {
+  background-image: url(&quot;./img/linie_prawa_gora.png&quot;); // tutaj podaj ścieżkę do zdjęcia
+  background-size: cover;
+  position: absolute;
+  height: 190px;
+  width: 470px;
+  top: 0;
+  right: 0;
+}
+.right-bottom-img {
+  background-image: url(&quot;./img/linie_prawy_dol.png&quot;); // tutaj podaj ścieżkę do zdjęcia
+  background-size: cover;
+  position: absolute;
+  height: 485px;
+  width: 870px;
+  bottom: 0;
+  right: 0;
+}
+.left-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 7rem;
+}
+
+.inputStyle,
+mat-select {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  height: 30px;
+  padding: 0;
+  color: white;
+}
+.inputStyle,
+mat-icon {
+  overflow: visible;
+  margin-right: 10px;
+}
+.right-title {
+  color: rgb(79, 79, 79);
+  box-shadow: 5px 5px 20px rgb(77, 77, 77);
+  background: white;
+  width: 100%;
+  font-size: 40px;
+  align-items: center;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.login-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+
+  .left-section,
+  .right-section {
+    justify-content: space-evenly;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    //  padding: 0 50px;
+  }
+
+  .img-opacity {
+    z-index: -1;
+    position: absolute;
+    width: -webkit-fill-available;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.84;
+  }
+
+  .left-section {
+    z-index: 0;
+    background-image: url(&quot;./img/foto.png&quot;); // tutaj podaj ścieżkę do zdjęcia
+    background-size: cover;
+    background-position: top;
+
+    font-size: 60px;
+    color: black;
+  }
+
+  .right-section {
+    //background: linear-gradient(135deg, #ffad33 0%, #ffad33 50%, #fff 50%, #fff 100%);
+    flex-direction: column;
+    background: map-get($orange, default);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="login-container">  <div class="left-section">    <div class="left-img"></div>    <div class="img-opacity"></div>    <div class="left-title">      <div class="left-title-up">Witaj w</div>      <div class="logo-display">        <div class="logo-EdWings"></div>      </div>    </div>  </div>  <div class="right-section">    <div class="right-top-img"></div>    <div class="right-bottom-img"></div>    <div class="right-title">      <span>Zaloguj się</span>    </div>    <form [formGroup]="userForm" class="formStyle" (ngSubmit)="onSubmit(userForm.value)">      <div class="formContainer" matDialogContent>        <mat-form-field appearance="fill">          <div class="inputStyle">            <mat-icon>person</mat-icon>            <input matInput formControlName="email" placeholder="Email" />          </div>          <mat-error>            @if (this.userForm.get(\'email\')?.hasError(\'required\')) { Email jest            wymagane } @if(this.userForm.get(\'email\')?.hasError(\'email\')) {            Niepoprawny adres email. Wprowadź prawidłowy adres email, np.            jan.kowalski&#64;email.pl. }            @if(this.userForm.get(\'email\')?.hasError(\'serverErrorEmail\')) {            {{ this.userForm.get("email")?.getError("serverErrorEmail") }}            }          </mat-error>        </mat-form-field>        <mat-form-field appearance="fill">          <div class="inputStyle">            <mat-icon>lock</mat-icon>            <input [type]="hide ? \'password\' : \'text\'" matInput formControlName="password" placeholder="Hasło" />            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="\'Hide password\'"              [attr.aria-pressed]="hide">              <mat-icon>                {{ hide ? "visibility_off" : "visibility" }}              </mat-icon>            </button>          </div>          <mat-error>            @if ( this.userForm.get(\'password\')?.hasError(\'required\')) { Hasło jest wymagane. }            @if(this.userForm.get(\'password\')?.hasError(\'serverErrorPass\'))             {            {{ this.userForm.get("password")?.getError("serverErrorPass") }}            }          </mat-error>        </mat-form-field>        <mat-checkbox [checked]="rememberMe" (change)="onChangeRememberMe()">          Zapamiętaj mnie        </mat-checkbox>        <button mat-button type="submit" (click)="onSubmit(userForm.value)">          <div class="submitBtn">Zaloguj</div>        </button>          </div>    </form>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CancelBtnComponent', 'selector': 'app-cancel-btn'},{'name': 'ChangePassComponent', 'selector': 'app-ChangePass'},{'name': 'ClosePopupComponent', 'selector': 'app-close-popup'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactPersonFormComponent', 'selector': 'app-contact-person-form'},{'name': 'DataLossDialogComponent', 'selector': 'app-dataLoss-dialog'},{'name': 'EditFiszkaFormComponent', 'selector': 'app-edit-fiszka-form'},{'name': 'EditGroupFormComponent', 'selector': 'app-edit-group-form'},{'name': 'EditInterviewFormComponent', 'selector': 'app-edit-interview-form'},{'name': 'EditSchoolFormComponent', 'selector': 'app-school-form'},{'name': 'EditUserFormComponent', 'selector': 'app-edit-user-form'},{'name': 'ErrorPageComponent', 'selector': 'app-error-page'},{'name': 'FiszkaDetailsComponent', 'selector': 'app-fiszka-details'},{'name': 'FiszkaFormComponent', 'selector': 'app-fiszka-form'},{'name': 'FiszkiComponent', 'selector': 'app-fiszki'},{'name': 'GroupFiszkaFormComponent', 'selector': 'app-group-fiszka-form'},{'name': 'GroupFiszkiComponent', 'selector': 'app-group-fiszki'},{'name': 'GroupFormComponent', 'selector': 'app-group-form-component'},{'name': 'GroupsComponent', 'selector': 'app-groups'},{'name': 'InterviewFiszkiComponent', 'selector': 'app-interview-fiszki'},{'name': 'InterviewFormComponent', 'selector': 'app-interview-form'},{'name': 'InterviewsComponent', 'selector': 'app-interviews'},{'name': 'InterviewUserFormComponent', 'selector': 'app-interview-user-form'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavbarItemComponent', 'selector': 'app-navbar-item'},{'name': 'NavigatorCardComponent', 'selector': 'app-navigator-card'},{'name': 'PasswordStrengthComponent', 'selector': 'app-password-strength'},{'name': 'PhoneCallFormComponent', 'selector': 'app-phone-call-form'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SchoolDetailsComponent', 'selector': 'app-school-details'},{'name': 'SchoolFormComponent', 'selector': 'app-school-form'},{'name': 'SchoolsComponent', 'selector': 'app-schools'},{'name': 'SearchbarComponent', 'selector': 'app-searchbar'},{'name': 'StatsComponent', 'selector': 'app-stats'},{'name': 'SubmitBtnComponent', 'selector': 'app-submit-btn'},{'name': 'UserDetailsComponent', 'selector': 'app-details'},{'name': 'UserFormComponent', 'selector': 'app-form'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
